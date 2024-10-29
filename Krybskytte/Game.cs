@@ -6,6 +6,7 @@ class Game {
   static Context  context  = new Context(world.GetEntry());
   static ICommand fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
+  static Enemy    enemy    = new Enemy(world.GetEntry(), context);
   
   private static void InitRegistry () {
     ICommand cmdExit = new CommandExit();
@@ -26,6 +27,7 @@ class Game {
       Console.Write("> ");
       string? line = Console.ReadLine();
       if (line!=null) registry.Dispatch(line);
+      // enemy.HuntOnce(); // Hvis denne linje tilføjes, vil Enemy jagte spilleren efter hver kommando spilleren skriver. (Pt. dør spilleren bare instantly)
     }
     Console.WriteLine("Game Over 😥");
   }

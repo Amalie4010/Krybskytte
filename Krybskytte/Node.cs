@@ -13,6 +13,12 @@ class Node {
     return name;
   }
   
+  public Dictionary<string, Node> GetEdges() 
+    { 
+        return edges;
+    }
+
+
   public void AddEdge (string name, Node node) {
     edges.Add(name, node);
   }
