@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Amalie Holten\\.nuget\\packages\\": {}
+    "C:\\Users\\freya\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Amalie Holten\\Desktop\\Behold\\Skole\\1 SDU\\objektorienteret_programering\\SmallGames\\Krybskytte\\Krybskytte\\Krybskytte.csproj",
+      "projectUniqueName": "C:\\Users\\freya\\RiderProjects\\Krybskytte\\Krybskytte\\Krybskytte.csproj",
       "projectName": "Krybskytte",
-      "projectPath": "C:\\Users\\Amalie Holten\\Desktop\\Behold\\Skole\\1 SDU\\objektorienteret_programering\\SmallGames\\Krybskytte\\Krybskytte\\Krybskytte.csproj",
-      "packagesPath": "C:\\Users\\Amalie Holten\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Amalie Holten\\Desktop\\Behold\\Skole\\1 SDU\\objektorienteret_programering\\SmallGames\\Krybskytte\\Krybskytte\\obj\\",
+      "projectPath": "C:\\Users\\freya\\RiderProjects\\Krybskytte\\Krybskytte\\Krybskytte.csproj",
+      "packagesPath": "C:\\Users\\freya\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\freya\\RiderProjects\\Krybskytte\\Krybskytte\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Amalie Holten\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\freya\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
