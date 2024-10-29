@@ -1,0 +1,14 @@
+C:\Users\Amalie Holten\Desktop\Behold\Skole\1 SDU\objektorienteret_programering\SmallGames\Krybskytte\Krybskytte\bin\Debug\net8.0\Krybskytte.exe
+C:\Users\Amalie Holten\Desktop\Behold\Skole\1 SDU\objektorienteret_programering\SmallGames\Krybskytte\Krybskytte\bin\Debug\net8.0\Krybskytte.deps.json
+C:\Users\Amalie Holten\Desktop\Behold\Skole\1 SDU\objektorienteret_programering\SmallGames\Krybskytte\Krybskytte\bin\Debug\net8.0\Krybskytte.runtimeconfig.json
+C:\Users\Amalie Holten\Desktop\Behold\Skole\1 SDU\objektorienteret_programering\SmallGames\Krybskytte\Krybskytte\bin\Debug\net8.0\Krybskytte.dll
+C:\Users\Amalie Holten\Desktop\Behold\Skole\1 SDU\objektorienteret_programering\SmallGames\Krybskytte\Krybskytte\bin\Debug\net8.0\Krybskytte.pdb
+C:\Users\Amalie Holten\Desktop\Behold\Skole\1 SDU\objektorienteret_programering\SmallGames\Krybskytte\Krybskytte\obj\Debug\net8.0\Krybskytte.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amalie Holten\Desktop\Behold\Skole\1 SDU\objektorienteret_programering\SmallGames\Krybskytte\Krybskytte\obj\Debug\net8.0\Krybskytte.AssemblyInfoInputs.cache
+C:\Users\Amalie Holten\Desktop\Behold\Skole\1 SDU\objektorienteret_programering\SmallGames\Krybskytte\Krybskytte\obj\Debug\net8.0\Krybskytte.AssemblyInfo.cs
+C:\Users\Amalie Holten\Desktop\Behold\Skole\1 SDU\objektorienteret_programering\SmallGames\Krybskytte\Krybskytte\obj\Debug\net8.0\Krybskytte.csproj.CoreCompileInputs.cache
+C:\Users\Amalie Holten\Desktop\Behold\Skole\1 SDU\objektorienteret_programering\SmallGames\Krybskytte\Krybskytte\obj\Debug\net8.0\Krybskytte.dll
+C:\Users\Amalie Holten\Desktop\Behold\Skole\1 SDU\objektorienteret_programering\SmallGames\Krybskytte\Krybskytte\obj\Debug\net8.0\refint\Krybskytte.dll
+C:\Users\Amalie Holten\Desktop\Behold\Skole\1 SDU\objektorienteret_programering\SmallGames\Krybskytte\Krybskytte\obj\Debug\net8.0\Krybskytte.pdb
+C:\Users\Amalie Holten\Desktop\Behold\Skole\1 SDU\objektorienteret_programering\SmallGames\Krybskytte\Krybskytte\obj\Debug\net8.0\Krybskytte.genruntimeconfig.cache
+C:\Users\Amalie Holten\Desktop\Behold\Skole\1 SDU\objektorienteret_programering\SmallGames\Krybskytte\Krybskytte\obj\Debug\net8.0\ref\Krybskytte.dll
