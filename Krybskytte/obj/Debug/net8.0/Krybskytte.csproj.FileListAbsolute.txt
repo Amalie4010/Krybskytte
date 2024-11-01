@@ -27,3 +27,4 @@ C:\Users\freya\RiderProjects\Krybskytte\Krybskytte\obj\Debug\net8.0\refint\Krybs
 C:\Users\freya\RiderProjects\Krybskytte\Krybskytte\obj\Debug\net8.0\Krybskytte.pdb
 C:\Users\freya\RiderProjects\Krybskytte\Krybskytte\obj\Debug\net8.0\Krybskytte.genruntimeconfig.cache
 C:\Users\freya\RiderProjects\Krybskytte\Krybskytte\obj\Debug\net8.0\ref\Krybskytte.dll
+C:\Users\Amalie Holten\Desktop\Behold\Skole\1 SDU\objektorienteret_programering\SmallGames\Krybskytte\Krybskytte\obj\Debug\net8.0\Krybskytte.sourcelink.json
