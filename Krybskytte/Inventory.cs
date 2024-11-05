@@ -1,16 +1,16 @@
 // This is the inventory
 
-class Inventory {
-    private int size = 5;
-    private Items[] stuff;
-    private int full;
+static class Inventory {
+    static private int size = 5;
+    static private Items[] stuff;
+    static private int full;
 
-    public Inventory() {
+    static Inventory() {
         stuff = new Items[size];
     }
 
     //Generates an item and adds it to your inventory
-    public void AddItem() {
+    public static void AddItem() {
         Items newItem = new Items();
         
         for (int i = 0; i < stuff.Length; i++) {
@@ -32,7 +32,7 @@ class Inventory {
     }
 
     //Removes an item from the inventory
-    public void RemoveItem() {
+    public static void RemoveItem() {
         for (int i = 0; i < stuff.Length; i++) {
             if (stuff[i] != null) {
                 stuff[i] = null;
@@ -42,7 +42,7 @@ class Inventory {
     }
 
     //Shows what's in the inventory
-    public void GetStuff() {
+    public static void GetStuff() {
         Console.WriteLine("");
         Console.WriteLine("Your inventory contains: ");
         foreach (var item in stuff) {

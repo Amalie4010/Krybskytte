@@ -6,9 +6,6 @@ class CommandGo : BaseCommand, ICommand {
     description = "Follow an exit";
   }
   
-  //Instantiate Inventory
-  Inventory inventory = new Inventory();
-  
   public void Execute (Context context, string command, string[] parameters) {
     if (GuardEq(parameters, 1)) {
       Console.WriteLine("I don't seem to know where that is 🤔");
@@ -25,7 +22,7 @@ class CommandGo : BaseCommand, ICommand {
     
     if (luckyNum < 15)
     {      
-      inventory.AddItem();
+      Inventory.AddItem();
       Console.WriteLine("You found an item!");
     }
 
