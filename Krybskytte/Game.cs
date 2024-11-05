@@ -6,10 +6,14 @@ class Game {
   static Context  context  = new Context(world.GetEntry());
   static ICommand fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
+
+  static NPC NPC1 = new NPC("nameNPC", "descriptionNPC", "vl2NPC");
+
   static Enemy    enemy    = new Enemy(world.GetEntry(), context);
   static GameState gameState = new GameState(enemy, world, context);
 
     private static void InitRegistry () {
+
     ICommand cmdExit = new CommandExit();
     registry.Register("exit", cmdExit);
     registry.Register("quit", cmdExit);
@@ -19,8 +23,11 @@ class Game {
     registry.Register("inventory", new CommandInventory());
   }
 
-    static void Main (string[] args) {
-    Console.WriteLine("Welcome to The Wild forrest. \n You're a wolf, hunted by Mr.Poacher, who's after your Pelt to sell on the black market. \n Outsmart him, survive 10 days, and claim your freedom.");
+  
+  static void Main (string[] args) {
+    Console.WriteLine("Welcome to The Wild forest. \n You're a wolf, hunted by Mr.Poacher, who's after your Pelt to sell on the black market. \n Outsmart him, survive 10 days, and claim your freedom.");
+    
+
     InitRegistry();
     context.GetCurrent().Welcome();
     
