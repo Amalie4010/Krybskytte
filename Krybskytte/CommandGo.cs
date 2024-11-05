@@ -29,9 +29,11 @@ class CommandGo : BaseCommand, ICommand {
         Console.WriteLine("You found an item!");
       }
     }
+    
     catch (KeyNotFoundException)
     {
-      Console.WriteLine("Please choose a valid location!");
+      Console.WriteLine("Please choose a valid location.");
     }
+    
   }
 }
