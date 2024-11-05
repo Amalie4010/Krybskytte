@@ -15,6 +15,7 @@ class Game {
     registry.Register("bye", cmdExit);
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
+    registry.Register("inventory", new CommandInventory());
   }
   
   static void Main (string[] args) {
