@@ -16,6 +16,7 @@ class Game {
     registry.Register("bye", cmdExit);
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
+    registry.Register("inventory", new CommandInventory());
   }
 
     static void Main (string[] args) {
@@ -29,6 +30,7 @@ class Game {
       if (line!=null) registry.Dispatch(line);
       // enemy.HuntOnce(); // Hvis denne linje tilføjes, vil Enemy jagte spilleren efter hver kommando spilleren skriver. (Pt. dør spilleren bare instantly)
     }
+
     if (gameState.HasWon())
     {
         Console.WriteLine("You won, nice!");
