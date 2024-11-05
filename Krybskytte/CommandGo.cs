@@ -32,7 +32,7 @@ class CommandGo : BaseCommand, ICommand {
     
     catch (KeyNotFoundException)
     {
-      Console.WriteLine("Please choose a valid location!");
+      Console.WriteLine("Please choose a valid location.");
     }
     
   }
