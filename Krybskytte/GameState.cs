@@ -11,22 +11,30 @@ class GameState
     {
         Day,
         Night,
-        Lost
+        Lost,
+        Win
     }
     States state = States.Day;
     int turnsPerCycle = 5;
     int turnsUntilNextCycle;
+    int daysRequiredToWin = 2;
+    int daysRemainingToWin;
+
     public Enemy enemy;
     World world;
+    Context context;
 
-    public GameState(Enemy enemy, World world)
+    public GameState(Enemy enemy, World world, Context context)
     {
         this.enemy = enemy;
         this.world = world;
+
         state = States.Day;
         turnsUntilNextCycle = turnsPerCycle;
-
+        daysRemainingToWin = daysRequiredToWin;
+        
         GameState.gameState = this;
+        this.context = context;
     }
 
     public void UseTurn()
@@ -49,6 +57,14 @@ class GameState
         if (newState == States.Night)
         {
             enemy.SetCurrent(world.GetEntry());
+        } else if (newState == States.Day)
+        {
+            daysRemainingToWin -= 1;
+            if (daysRemainingToWin == 0)
+            {
+                ChangeState(States.Win);
+                context.MakeDone();
+            }
         }
         
     }
@@ -58,10 +74,10 @@ class GameState
         switch(state)
         {
             case States.Day:
-                state = States.Night;
+                ChangeState(States.Night);
                 break;
             case States.Night:
-                state = States.Day; 
+                ChangeState(States.Day);
                 break;
             default:
                 return;
@@ -72,11 +88,17 @@ class GameState
     public void Lose()
     {
         ChangeState(States.Lost);
+        context.MakeDone();
     }
 
     public bool HasLost()
     {
         return state == States.Lost;
+    }
+
+    public bool HasWon()
+    {
+        return state == States.Win;
     }
 
     public void PrintGameState()

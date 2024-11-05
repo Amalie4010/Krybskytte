@@ -7,7 +7,7 @@ class Game {
   static ICommand fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
   static Enemy    enemy    = new Enemy(world.GetEntry(), context);
-  static GameState gameState = new GameState(enemy, world);
+  static GameState gameState = new GameState(enemy, world, context);
 
     private static void InitRegistry () {
     ICommand cmdExit = new CommandExit();
@@ -23,12 +23,18 @@ class Game {
     InitRegistry();
     context.GetCurrent().Welcome();
     
-    while (context.IsDone()==false && !gameState.HasLost()) {
+    while (context.IsDone()==false) {
       Console.Write("> ");
       string? line = Console.ReadLine();
       if (line!=null) registry.Dispatch(line);
       // enemy.HuntOnce(); // Hvis denne linje tilføjes, vil Enemy jagte spilleren efter hver kommando spilleren skriver. (Pt. dør spilleren bare instantly)
     }
-    Console.WriteLine("Game Over 😥");
+    if (gameState.HasWon())
+    {
+        Console.WriteLine("You won, nice!");
+    } else if (gameState.HasLost())
+    {
+            Console.WriteLine("You lost");
+    }
   }
 }
