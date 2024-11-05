@@ -18,9 +18,9 @@ class CommandGo : BaseCommand, ICommand {
     {
       context.Transition(parameters[0]);
 
-      // Use one turn for player
+     // Use one turn for player
 
-      GameState.gameState.UseTurn()
+      GameState.gameState.UseTurn();
 
       //Generates a random item on chance
       Random random = new Random();
