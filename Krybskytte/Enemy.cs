@@ -128,6 +128,7 @@ class Enemy
 
     void KillPlayer()
     {
+        Console.WriteLine("PEW PEW");
         GameState.gameState.Lose();
     }
 }
