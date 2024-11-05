@@ -128,7 +128,14 @@ class Enemy
 
     void KillPlayer()
     {
-        Console.WriteLine("PEW PEW");
+        //Print Gun
+        Console.WriteLine(" ____         __^.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,^.,.,.,.,.,.,.,_");
+        Console.WriteLine("\\ \\     \\_/_\\      -o    ===       ------  ;;;;;;;;;;;;;;;;;;;;▄▄▄▄▄▄");
+        Console.WriteLine("/_-----   /    /(/_)---- ██/-- {_/---     ^ ^ (_-___}----------------------------------------------------         ~KAPOW~         *");
+        Console.WriteLine("           /__/            {██}  ");
+        
+        Console.WriteLine("");
+        
         GameState.gameState.Lose();
     }
 }
