@@ -18,8 +18,6 @@ class CommandGo : BaseCommand, ICommand {
     Random random = new Random();
     int luckyNum = random.Next(1, 100);
     
-    Console.WriteLine(luckyNum);
-    
     if (luckyNum < 15)
     {      
       Inventory.AddItem();
