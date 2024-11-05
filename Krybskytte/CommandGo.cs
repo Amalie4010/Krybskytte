@@ -25,7 +25,7 @@ class CommandGo : BaseCommand, ICommand {
     
     if (luckyNum < 15)
     {      
-      inventory.GenerateItem();
+      inventory.AddItem();
       Console.WriteLine("You found an item!");
     }
 
