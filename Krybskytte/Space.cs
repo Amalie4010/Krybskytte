@@ -2,17 +2,22 @@
  */
 
 class Space : Node {
-  public Space (String name) : base(name)
+  private string description;
+  public Space (String name, string description = "") : base(name)
   {
+    this.description = description;
   }
   
   public void Welcome () {
     Console.WriteLine("- - - - - - - - - - - - -");
-    Console.WriteLine("You are now at "+name);
+    Console.WriteLine("You are now at " + name);
+    if (description != "") {
+      Console.WriteLine(description);
+    }
     HashSet<string> exits = edges.Keys.ToHashSet();
     Console.WriteLine("Current exits are:");
     foreach (String exit in exits) {
-      Console.WriteLine(" - "+exit);
+      Console.WriteLine(" - " + exit);
     }
   }
   
