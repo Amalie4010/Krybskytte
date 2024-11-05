@@ -16,6 +16,7 @@ class Enemy
     Space current;
     Context playerContext;
 
+
     public Enemy(Space startNode, Context playerContext)
     {
         current = startNode;
@@ -25,6 +26,11 @@ class Enemy
     public Space GetCurrent()
     {
         return current;
+    }
+
+    public void SetCurrent(Space space)
+    {
+        current = space;
     }
 
     public void Transition(string direction)
@@ -122,6 +128,6 @@ class Enemy
 
     void KillPlayer()
     {
-        playerContext.MakeDone();
+        GameState.gameState.Lose();
     }
 }

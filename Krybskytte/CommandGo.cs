@@ -12,13 +12,16 @@ class CommandGo : BaseCommand, ICommand {
       return;
     }
     context.Transition(parameters[0]);
-    
+
+    // Use one turn for player
+
+    GameState.gameState.UseTurn();
     
     //Generates a random item on chance
     Random random = new Random();
     int luckyNum = random.Next(1, 100);
     
-    Console.WriteLine(luckyNum);
+    //Console.WriteLine(luckyNum);
     
     if (luckyNum < 15)
     {      

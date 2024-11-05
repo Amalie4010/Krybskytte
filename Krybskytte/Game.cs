@@ -7,8 +7,9 @@ class Game {
   static ICommand fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
   static Enemy    enemy    = new Enemy(world.GetEntry(), context);
-  
-  private static void InitRegistry () {
+  static GameState gameState = new GameState(enemy, world);
+
+    private static void InitRegistry () {
     ICommand cmdExit = new CommandExit();
     registry.Register("exit", cmdExit);
     registry.Register("quit", cmdExit);
@@ -16,14 +17,13 @@ class Game {
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
   }
-  
-  static void Main (string[] args) {
+
+    static void Main (string[] args) {
     Console.WriteLine("Welcome to The Wild forrest. \n You're a wolf, hunted by Mr.Poacher, who's after your Pelt to sell on the black market. \n Outsmart him, survive 10 days, and claim your freedom.");
-    
     InitRegistry();
     context.GetCurrent().Welcome();
     
-    while (context.IsDone()==false) {
+    while (context.IsDone()==false && !gameState.HasLost()) {
       Console.Write("> ");
       string? line = Console.ReadLine();
       if (line!=null) registry.Dispatch(line);
