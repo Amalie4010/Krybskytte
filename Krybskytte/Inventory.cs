@@ -1,31 +1,55 @@
 // This is the inventory
 
 class Inventory {
-    private List<string> stuff = new List<string>();
     private int size = 5;
-    
-    //Generates an item and adds it to your inventory
-    public void GenerateItem() {
-        string newItem = new Items().GetItemName();
+    private Items[] stuff;
+    private int full;
 
-        if (stuff.Count < size) {
-            stuff.Add(newItem);
-        }
-        else {
-            Console.WriteLine("No space in inventory");
+    public Inventory() {
+        stuff = new Items[size];
+    }
+
+    //Generates an item and adds it to your inventory
+    public void AddItem() {
+        Items newItem = new Items();
+        
+        for (int i = 0; i < stuff.Length; i++) {
+            if (stuff[i] == null) {
+                stuff[i] = new Items();
+                return;
+            }
+            else {
+                full++;
+                
+                if (full == stuff.Length) {
+                    Console.WriteLine("");
+                    Console.WriteLine("No space in inventory");
+                    full = 0;
+                    return;
+                }
+            }
         }
     }
-    
+
     //Removes an item from the inventory
     public void RemoveItem() {
-        stuff.RemoveAt(0);
+        for (int i = 0; i < stuff.Length; i++) {
+            if (stuff[i] != null) {
+                stuff[i] = null;
+                return;
+            }
+        }
     }
-    
+
     //Shows what's in the inventory
     public void GetStuff() {
+        Console.WriteLine("");
+        Console.WriteLine("Your inventory contains: ");
         foreach (var item in stuff) {
-            Console.WriteLine("Your inventory contains: ");
-            Console.WriteLine(item);
+            if (item != null) {
+                Console.Write("- ");
+                Console.WriteLine(item.GetItemName());
+            }
         }
     }
 }
