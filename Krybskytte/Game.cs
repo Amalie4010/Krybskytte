@@ -7,8 +7,9 @@ class Game {
   static ICommand fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
   static Enemy    enemy    = new Enemy(world.GetEntry(), context);
-  
-  private static void InitRegistry () {
+  static GameState gameState = new GameState(enemy, world, context);
+
+    private static void InitRegistry () {
     ICommand cmdExit = new CommandExit();
     registry.Register("exit", cmdExit);
     registry.Register("quit", cmdExit);
@@ -17,10 +18,9 @@ class Game {
     registry.Register("help", new CommandHelp(registry));
     registry.Register("inventory", new CommandInventory());
   }
-  
-  static void Main (string[] args) {
+
+    static void Main (string[] args) {
     Console.WriteLine("Welcome to The Wild forrest. \n You're a wolf, hunted by Mr.Poacher, who's after your Pelt to sell on the black market. \n Outsmart him, survive 10 days, and claim your freedom.");
-    
     InitRegistry();
     context.GetCurrent().Welcome();
     
@@ -30,6 +30,13 @@ class Game {
       if (line!=null) registry.Dispatch(line);
       // enemy.HuntOnce(); // Hvis denne linje tilføjes, vil Enemy jagte spilleren efter hver kommando spilleren skriver. (Pt. dør spilleren bare instantly)
     }
-    Console.WriteLine("Game Over.");
+
+    if (gameState.HasWon())
+    {
+        Console.WriteLine("You won, nice!");
+    } else if (gameState.HasLost())
+    {
+            Console.WriteLine("You lost");
+    }
   }
 }
