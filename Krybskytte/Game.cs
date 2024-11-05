@@ -30,6 +30,6 @@ class Game {
       if (line!=null) registry.Dispatch(line);
       // enemy.HuntOnce(); // Hvis denne linje tilføjes, vil Enemy jagte spilleren efter hver kommando spilleren skriver. (Pt. dør spilleren bare instantly)
     }
-    Console.WriteLine("Game Over 😥");
+    Console.WriteLine("Game Over.");
   }
 }
