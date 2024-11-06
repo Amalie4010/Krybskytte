@@ -17,7 +17,7 @@ class GameState
     States state = States.Day;
     int turnsPerCycle = 5;
     int turnsUntilNextCycle;
-    int daysRequiredToWin = 2;
+    int daysRequiredToWin = 10;
     int daysRemainingToWin;
 
     public Enemy enemy;
