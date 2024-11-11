@@ -1,15 +1,24 @@
 
 
+
+/*HOW TO USE
+ 
+ 1)
+Create text file in Text_Files folder
+
+2)
+Call method using text file name
+PrettyPrinter.Printer("FileName.txt");
+
+*/
+
 static class PrettyPrinter
 {
  
     //ATTRIBUTES
     
     
-    
     //CONSTRUCTORS
-    
-    
     
     
     //METHODS
@@ -18,6 +27,10 @@ static class PrettyPrinter
     //SOURCE: https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/csharp/language-compilers/read-write-text-file
     public static void Printer(string directory)
     {
+        
+        //Get full directory path
+        directory = FindLocalPath() + "/Text_Files/" + directory;
+        
         //Pass the file path and file name to the StreamReader constructor
         StreamReader sr = new StreamReader(directory);
         
@@ -37,7 +50,17 @@ static class PrettyPrinter
         sr.Close();
         Console.ReadLine();
     }
-    
-    
-    
+
+    public static string FindLocalPath()
+    {
+
+        string localDir = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        
+        Console.WriteLine(localDir);
+
+        return localDir;
+    }
+
+
+
 }

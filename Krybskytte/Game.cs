@@ -26,9 +26,7 @@ class Game {
   
   static void Main (string[] args) {
     Console.WriteLine("Welcome to The Wild forest. \n You're a wolf, hunted by Mr.Poacher, who's after your Pelt to sell on the black market. \n Outsmart him, survive 10 days, and claim your freedom.");
-
-    /*PrettyPrinter.Printer("C:\\Users\\freya\\RiderProjects\\Krybskytte\\Krybskytte\\Text_Files\\Gun.txt");
-    Missing Proper Directory (GitHub) */
+    
     InitRegistry();
     context.GetCurrent().Welcome();
     

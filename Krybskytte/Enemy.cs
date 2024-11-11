@@ -129,10 +129,7 @@ class Enemy
     void KillPlayer()
     {
         //Print Gun
-        Console.WriteLine(" ____         __^.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,^.,.,.,.,.,.,.,_");
-        Console.WriteLine("\\ \\     \\_/_\\      -o    ===       ------  ;;;;;;;;;;;;;;;;;;;;▄▄▄▄▄▄");
-        Console.WriteLine("/_-----   /    /(/_)---- ██/-- {_/---     ^ ^ (_-___}----------------------------------------------------         ~KAPOW~         *");
-        Console.WriteLine("           /__/            {██}  ");
+        PrettyPrinter.Printer("Gun.txt");
         
         Console.WriteLine("");
         
