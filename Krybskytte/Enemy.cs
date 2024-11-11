@@ -33,7 +33,7 @@ class Enemy
         current = space;
     }
 
-    public void Transition(string direction)
+    public void Transition(string direction)   
     {
         Space next = current.FollowEdge(direction);
         if (next == null)
@@ -57,7 +57,10 @@ class Enemy
         
         if (path.Count >= maxPathLength) // Er ruten for lang
         {
-            path.RemoveAt(path.Count - 1);
+            if (path.Count > 0) // resolves edgecase, where enemy is on top of player and therefore cannot remove any paths
+            {
+                path.RemoveAt(path.Count - 1);
+            }
             return false;
         }
 
@@ -112,7 +115,10 @@ class Enemy
     public void HuntOnce()
     {
         List<string> path = CalculateShortestRouteToPlayer(playerContext.GetCurrent());
-        Transition(path[0]);
+        if (path.Count > 0) // If path == 0 that means the enemy already is at the same location as the player and therefore shouldnt move
+        {
+            Transition(path[0]);
+        }
 
         if (PlayerIsInRange())
         {
@@ -132,6 +138,7 @@ class Enemy
         PrettyPrinter.Printer("Gun.txt");
         
         Console.WriteLine("");
+
         
         GameState.gameState.Lose();
     }
