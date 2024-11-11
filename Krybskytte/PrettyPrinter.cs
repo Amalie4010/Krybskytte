@@ -48,15 +48,12 @@ static class PrettyPrinter
         }
         //close the file
         sr.Close();
-        Console.ReadLine();
     }
 
     public static string FindLocalPath()
     {
 
         string localDir = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-        
-        Console.WriteLine(localDir);
 
         return localDir;
     }
