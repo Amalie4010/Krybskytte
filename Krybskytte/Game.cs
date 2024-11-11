@@ -27,7 +27,6 @@ class Game {
   static void Main (string[] args) {
     Console.WriteLine("Welcome to The Wild forest. \n You're a wolf, hunted by Mr.Poacher, who's after your Pelt to sell on the black market. \n Outsmart him, survive 10 days, and claim your freedom.");
     
-
     InitRegistry();
     context.GetCurrent().Welcome();
     
