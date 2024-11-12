@@ -70,6 +70,7 @@ class Enemy
         {
             return true;
         }
+
         foreach (KeyValuePair<string, Node> space in here.GetEdges())
         {
             if (!traversedNodes.Contains(space.Value)) // Har algoritmen tjekket dette før
@@ -89,15 +90,14 @@ class Enemy
         return false;
     }
 
-    // Looper og kører funktionen FindPath, indtil den korteste rute er fundet
     List<string> CalculateShortestRouteToPlayer(Node endpoint) 
     {
         int shortestPathLength = int.MaxValue;
         List<string> shortestPath = new List<string>();
 
+        // Kører funktionen FindPath, indtil den korteste rute er fundet
         while (true)
         {
-
             List<string> path = new List<string>();
             if (FindPath(current, endpoint, new List<Node>(), path, shortestPathLength)) // Hvis FindPath er true, betyder det at der blev fundet en rute
             {
@@ -106,7 +106,6 @@ class Enemy
                 continue;
             }
             break;
-
         }
         return shortestPath;
 
@@ -118,6 +117,7 @@ class Enemy
         if (path.Count > 0) // If path == 0 that means the enemy already is at the same location as the player and therefore shouldnt move
         {
             Transition(path[0]);
+            PrettyPrinter.WriteDangerMessage(GenerateDangerLevelMessage(path.Count));
         }
 
         if (PlayerIsInRange())
@@ -141,5 +141,20 @@ class Enemy
 
         
         GameState.gameState.Lose();
+    }
+
+    string GenerateDangerLevelMessage(int distance)
+    {
+        if (distance <= 2) 
+        {
+            return "You smell danger VERY close to you!";
+        }
+        else if (distance <= 5)
+        {
+            return "You smell danger near to you";
+        }else
+        {
+            return "You smell no danger";
+        }
     }
 }

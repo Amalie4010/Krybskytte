@@ -8,7 +8,7 @@ class BaseCommand {
     return parameters.Length!=bound;
   }
   
-  public String GetDescription () {
+  public string GetDescription () {
     return description;
   }
 }

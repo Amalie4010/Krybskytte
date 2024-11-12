@@ -88,7 +88,7 @@ class GameState
             default:
                 return;
         }
-        PrintGameState();
+        PrettyPrinter.WriteChangeInTime(state);
     }
 
     public void Lose()
@@ -105,27 +105,6 @@ class GameState
     public bool HasWon()
     {
         return state == States.Win;
-    }
-
-    public void PrintGameState()
-    {
-        string stringToPrint;
-        switch (state)
-        {
-            case States.Day:
-                stringToPrint = "The day shines upon you!";
-                traps.AddTrap();//Adds a trap when day comes
-                break;
-            case States.Night:
-                stringToPrint = "The night has fallen!";
-                break;
-            default:
-                return;
-        }
-        Console.WriteLine(stringToPrint);
-    }
-    public States GetState() { 
-    return state;
     }
 }
 

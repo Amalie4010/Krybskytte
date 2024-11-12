@@ -6,7 +6,9 @@ using System.Dynamic;
 class Space : Node {
   private string description;
   public bool traped;
+  public NPC? NPC;
   public Space (String name, string description = "", bool traped = false) : base(name)
+
   {
     this.description = description;
     this.traped = traped;
@@ -14,14 +16,15 @@ class Space : Node {
   }
   
   public void Welcome () {
-    Console.WriteLine("- - - - - - - - - - - - -");
-    Console.WriteLine("You are now at " + name);
-    if (description != "") Console.WriteLine(description);
+
+    PrettyPrinter.ClearConsole();
+    //PrettyPrinter.WriteDividerLine();
+    PrettyPrinter.WriteLocation(name, description);
     HashSet<string> exits = edges.Keys.ToHashSet();
-    Console.WriteLine("Current paths are:");
-    foreach (String exit in exits) {
-      Console.WriteLine(" - " + exit);
-    }
+
+
+    PrettyPrinter.WriteExits(exits);
+    
   }
   
   public void Goodbye () {

@@ -2,7 +2,7 @@
 
 static class Inventory {
     static private int size = 5;
-    static private Items[] stuff;
+    static private Items[] stuff = new Items[size];
     static private int full;
 
     static private int count;
@@ -27,6 +27,7 @@ static class Inventory {
         else {
             Console.WriteLine("No space in inventory");
             return;
+
         }
     }
 
@@ -40,13 +41,7 @@ static class Inventory {
     }
 
     //Shows what's in the inventory
-    public static void GetStuff() {
-        Console.WriteLine("Your inventory contains: ");
-        foreach (var item in stuff) {
-            if (item != null) {
-                Console.Write("- ");
-                Console.WriteLine(item.GetItemName());
-            }
-        }
+    public static Items[] GetStuff() {
+        return stuff;
     }
 }
