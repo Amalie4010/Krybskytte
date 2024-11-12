@@ -67,7 +67,7 @@ static class PrettyPrinter
     public static void WriteLocation(string name, string desc)
     {
         Console.WriteLine("You are now at " + name);
-        if (desc != "")
+        if (desc != "" && Game.gameState.GetState() == States.Day)
         {
             Console.WriteLine($"{desc}");
         }
