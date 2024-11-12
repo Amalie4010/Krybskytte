@@ -43,6 +43,11 @@ class GameState
         this.traps = traps;
     }
 
+    public States GetState()
+    {
+        return state;
+    }
+
     public void UseTurn()
     {
         turnsUntilNextCycle -= 1;
