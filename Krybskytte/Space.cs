@@ -1,18 +1,22 @@
 /* Space class for modeling spaces (rooms, caves, ...)
  */
 
+using System.Dynamic;
 
-class Space : Node 
-{
+class Space : Node {
   private string description;
+  public bool traped;
   public NPC? NPC;
-  
-  public Space (String name, string description = "") : base(name)
+  public Space (String name, string description = "", bool traped = false) : base(name)
+
   {
     this.description = description;
+    this.traped = traped;
+    Traps.places.Add(this);//Adds all objets from spaces
   }
   
   public void Welcome () {
+
     PrettyPrinter.ClearConsole();
     //PrettyPrinter.WriteDividerLine();
     PrettyPrinter.WriteLocation(name, description);
@@ -21,7 +25,6 @@ class Space : Node
 
     PrettyPrinter.WriteExits(exits);
     
-
   }
   
   public void Goodbye () {

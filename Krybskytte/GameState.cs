@@ -23,6 +23,7 @@ class GameState
     public Enemy enemy;
     World world;
     Context context;
+    Traps traps;
 
     public GameState(Enemy enemy, World world, Context context)
     {
@@ -35,6 +36,11 @@ class GameState
         
         GameState.gameState = this;
         this.context = context;
+    }
+
+    public void SetTraps(Traps traps)
+    {
+        this.traps = traps;
     }
 
     public void UseTurn()
