@@ -117,7 +117,7 @@ class Enemy
         List<string> path = CalculateShortestRouteToPlayer(playerContext.GetCurrent());
         if (path.Count > 0) // If path == 0 that means the enemy already is at the same location as the player and therefore shouldnt move
         {
-            //Transition(path[0]);
+            Transition(path[0]);
         }
 
         if (PlayerIsInRange())

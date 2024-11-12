@@ -25,11 +25,10 @@ class GameState
     Context context;
     Traps traps;
 
-    public GameState(Enemy enemy, World world, Context context, Traps traps)
+    public GameState(Enemy enemy, World world, Context context)
     {
         this.enemy = enemy;
         this.world = world;
-        this.traps = traps;
 
         state = States.Day;
         turnsUntilNextCycle = turnsPerCycle;
@@ -37,6 +36,11 @@ class GameState
         
         GameState.gameState = this;
         this.context = context;
+    }
+
+    public void SetTraps(Traps traps)
+    {
+        this.traps = traps;
     }
 
     public void UseTurn()

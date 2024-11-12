@@ -11,6 +11,11 @@ static class Inventory {
         stuff = new Items[size];
     }
 
+    public static int GetCount()
+    {
+        return count;
+    }
+
     //Generates an item and adds it to your inventory
     public static void AddItem() {
         Items newItem = new Items();
@@ -28,12 +33,8 @@ static class Inventory {
     //Removes an item from the inventory
     public static void RemoveItem() {
         if (count >= 0) {
-            stuff[count] = null;
+            stuff[count - 1] = null;
             count--;
-            return;
-        }
-        else {
-            Console.WriteLine("This area contains a trap, but you have no items to remove it.");
             return;
         }
     }

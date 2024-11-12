@@ -3,15 +3,15 @@
 
 class Game {
   static World    world    = new World();
-  static Context  context  = new Context(world.GetEntry(), traps);
+  static Context  context  = new Context(world.GetEntry()); 
   static ICommand fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
   
   static NPC NPC1 = new NPC("nameNPC", "descriptionNPC", "vl2NPC");
 
   static Enemy    enemy    = new Enemy(world.GetEntry(), context);
-  static GameState gameState = new GameState(enemy, world, context, traps);
-static Traps traps = new Traps(context, gameState);
+  static GameState gameState = new GameState(enemy, world, context);
+  static Traps traps = new Traps(context, gameState);
 
     private static void InitRegistry () {
 
@@ -26,6 +26,13 @@ static Traps traps = new Traps(context, gameState);
 
   
   static void Main (string[] args) {
+    for(int i = 0; i < 100; i++)
+        {
+            traps.AddTrap();
+        }
+
+    Inventory.AddItem();
+
     Console.WriteLine("Welcome to The Wild forest. \n You're a wolf, hunted by Mr.Poacher, who's after your Pelt to sell on the black market. \n Outsmart him, survive 10 days, and claim your freedom.");
     
     InitRegistry();

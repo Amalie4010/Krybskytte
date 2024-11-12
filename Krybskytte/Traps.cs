@@ -5,9 +5,11 @@ class Traps {
     GameState gameState;
     Context context;
 
-    public Traps(Context context, GameState gameState) { 
+    public Traps(Context context, GameState gameState) {
         this.context = context;
+        this.context.SetTrap(this);
         this.gameState = gameState;
+        this.gameState.SetTraps(this);
     }
     public void AddTrap() {
         Random random = new Random();
@@ -16,18 +18,9 @@ class Traps {
         places[place].traped = true;
     }
 
-    public void RemoveTrap() {
-        context.GetCurrent().traped = false;
-        Inventory.RemoveItem();        
+    public void RemoveTrap(Space spaceToRemoveTrapFrom) {
+        spaceToRemoveTrapFrom.traped = false;
+        Inventory.RemoveItem();
+        Console.WriteLine("Removed trap and used item!");
     }
-
-    public void FindTrap() {
-        if (gameState.GetState() == GameState.States.Day) {
-            RemoveTrap();
-        }
-        else {
-            Console.WriteLine("That path contains a trap!\nQuick move somewere else");
-        }
-    }
-
 }
