@@ -24,14 +24,11 @@ public class NPC
         Console.WriteLine($"Hello im a {nameNPC}\n \n" + $"description {descriptionNPC} \n"+"voice line 1{vl2NPC}"); //Ikke færdig
     }
 
-    public void giveItem() //her skal metoden være for NPC'erne kan give items til spilleren
-    {
-        
-    }
+  
 
+    // kalder på static metode i inventory klassen.
     public void spawnNPC()
     {
-        
         
     }
 }

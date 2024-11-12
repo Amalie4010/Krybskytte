@@ -23,7 +23,7 @@ class Game {
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
     registry.Register("inventory", new CommandInventory());
-    registry.Register("interact", new CommandInteract());
+    registry.Register("interact", new CommandInteract()); // når man skrive "interact", så executer commantinteract. 
   }
 
   

@@ -15,7 +15,7 @@ class CommandInteract : BaseCommand, ICommand
         if (context.GetCurrent().NPC != null)
         {
             context.GetCurrent().NPC.showInformation();
-            context.GetCurrent().NPC.giveItem();
+            Inventory.AddItem(); 
         }
         else
         {
