@@ -14,7 +14,7 @@ static class Inventory {
     //Generates an item and adds it to your inventory
     public static void AddItem() {
         Items newItem = new Items();
-        if (count >= 0 && count >= size) {
+        if (count >= 0 && count <= size) {
             stuff[count] = newItem;
             count++;
             return;
