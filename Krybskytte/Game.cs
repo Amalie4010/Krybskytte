@@ -1,6 +1,8 @@
 /* Main class for launching the game
  */
 
+using Krybskytte;
+
 class Game {
   static World    world    = new World();
   static Context  context  = new Context(world.GetEntry());
@@ -21,6 +23,7 @@ class Game {
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
     registry.Register("inventory", new CommandInventory());
+    registry.Register("interact", new CommandInteract()); // når man skrive "interact", så executer commantinteract. 
   }
 
     private static void InitPrettyPrinter () 
@@ -29,7 +32,11 @@ class Game {
     }
   
   static void Main (string[] args) {
-    Console.WriteLine("Welcome to The Wild forest. \n You're a wolf, hunted by Mr.Poacher, who's after your Pelt to sell on the black market. \n Outsmart him, survive 10 days, and claim your freedom.");
+
+    Console.WriteLine("Welcome to The Wild forest. " +
+                      "\n You're a wolf, hunted by Mr.Poacher, who's after your pelt to sell on the black market. " +
+                      "\n Outsmart him, survive 10 days, and claim your freedom.");
+    
 
     InitPrettyPrinter();
     InitRegistry();

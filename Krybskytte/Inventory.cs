@@ -2,12 +2,8 @@
 
 static class Inventory {
     static private int size = 5;
-    static private Items[] stuff;
+    static private Items[] stuff = new Items[size];
     static private int full;
-
-    static Inventory() {
-        stuff = new Items[size];
-    }
 
     //Generates an item and adds it to your inventory
     public static void AddItem() {

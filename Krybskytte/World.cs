@@ -4,6 +4,7 @@
 class World {
   Space entry;
   
+
   public World () {
     Space dryCave = new Space("a cave");
     Space stone = new Space("a stone");
@@ -12,6 +13,7 @@ class World {
     Space clearing = new Space("a clearing", "it's nice and bright here");
     Space fallenTreeTrunk = new Space("a fallen tree trunk");
     Space forestEdge = new Space("the forest edge");//start
+    forestEdge.NPC = new NPC("NameNPC", "description", "voiceLine1");
     Space lake = new Space("a lake", "A small water stream is connected");
     Space bottomOfRavine = new Space("the bottom of a ravine", "You don't seem to be able to get up");
     Space waterfall = new Space("a waterfall", "how intriguing");
@@ -89,6 +91,7 @@ class World {
     
     
     this.entry = forestEdge;
+
   }
   
   public Space GetEntry () {
