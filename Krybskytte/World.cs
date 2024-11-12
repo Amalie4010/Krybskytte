@@ -70,7 +70,7 @@ class World {
     field.AddEdge("south", foxDen);
     field.AddEdge("west", flower);
     
-    wetCave.AddEdge("leave", waterStream);
+    wetCave.AddEdge("leave", waterfall);
     wetCave.AddEdge("inside", crossroad);
     
     foxDen.AddEdge("north", field);

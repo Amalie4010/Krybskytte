@@ -3,10 +3,12 @@
 
 class Context {
   Space current;
+  Traps traps;
   bool done = false;
   
-  public Context (Space node) {
+  public Context (Space node, Traps traps) {
     current = node;
+    this.traps = traps;
   }
   
   public Space GetCurrent() {
@@ -15,9 +17,11 @@ class Context {
   
   public void Transition (string direction) {
     Space next = current.FollowEdge(direction);
-    if (next==null) {
-      Console.WriteLine("You are confused, and walk in a circle looking for '"+direction+"'. In the end you give up.");
-    } else {
+    if (next.traped == true ) {
+        traps.FindTrap();
+        current.Welcome();
+    } 
+        else {
       current.Goodbye();
       current = next;
       current.Welcome();

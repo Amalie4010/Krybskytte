@@ -3,14 +3,15 @@
 
 class Game {
   static World    world    = new World();
-  static Context  context  = new Context(world.GetEntry());
+  static Context  context  = new Context(world.GetEntry(), traps);
   static ICommand fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
-
+  
   static NPC NPC1 = new NPC("nameNPC", "descriptionNPC", "vl2NPC");
 
   static Enemy    enemy    = new Enemy(world.GetEntry(), context);
-  static GameState gameState = new GameState(enemy, world, context);
+  static GameState gameState = new GameState(enemy, world, context, traps);
+static Traps traps = new Traps(context, gameState);
 
     private static void InitRegistry () {
 

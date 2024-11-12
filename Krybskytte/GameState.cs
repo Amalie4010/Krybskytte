@@ -23,11 +23,13 @@ class GameState
     public Enemy enemy;
     World world;
     Context context;
+    Traps traps;
 
-    public GameState(Enemy enemy, World world, Context context)
+    public GameState(Enemy enemy, World world, Context context, Traps traps)
     {
         this.enemy = enemy;
         this.world = world;
+        this.traps = traps;
 
         state = States.Day;
         turnsUntilNextCycle = turnsPerCycle;
@@ -108,6 +110,7 @@ class GameState
         {
             case States.Day:
                 stringToPrint = "The day shines upon you!";
+                traps.AddTrap();//Adds a trap when day comes
                 break;
             case States.Night:
                 stringToPrint = "The night has fallen!";
@@ -116,6 +119,9 @@ class GameState
                 return;
         }
         Console.WriteLine(stringToPrint);
-    } 
+    }
+    public States GetState() { 
+    return state;
+    }
 }
 

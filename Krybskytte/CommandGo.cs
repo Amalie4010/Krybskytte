@@ -22,9 +22,10 @@ class CommandGo : BaseCommand, ICommand {
 
       GameState.gameState.UseTurn();
 
-      //Generates a random item on chance
+            //Generates a random item on chance
       Random random = new Random();
       int luckyNum = random.Next(1, 100);
+      
 
       if (luckyNum < 15)
       {
