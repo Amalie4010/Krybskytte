@@ -117,7 +117,7 @@ class Enemy
         if (path.Count > 0) // If path == 0 that means the enemy already is at the same location as the player and therefore shouldnt move
         {
             Transition(path[0]);
-            Console.WriteLine(GenerateDangerLevelMessage(path.Count));
+            PrettyPrinter.WriteDangerMessage(GenerateDangerLevelMessage(path.Count));
         }
 
         if (PlayerIsInRange())

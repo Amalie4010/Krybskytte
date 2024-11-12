@@ -9,16 +9,12 @@ class Space : Node {
   }
   
   public void Welcome () {
-    Console.WriteLine("- - - - - - - - - - - - -");
-    Console.WriteLine("You are now at " + name);
-    if (description != "") {
-      Console.WriteLine(description);
-    }
+    PrettyPrinter.ClearConsole();
+    //PrettyPrinter.WriteDividerLine();
+    PrettyPrinter.WriteLocation(name, description);
     HashSet<string> exits = edges.Keys.ToHashSet();
-    Console.WriteLine("Current exits are:");
-    foreach (String exit in exits) {
-      Console.WriteLine(" - " + exit);
-    }
+    PrettyPrinter.WriteExits(exits);
+    
   }
   
   public void Goodbye () {
