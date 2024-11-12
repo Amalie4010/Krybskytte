@@ -24,7 +24,10 @@ class Space : Node {
 
 
     PrettyPrinter.WriteExits(exits);
-    
+    if (NPC != null)
+        {
+            Console.WriteLine("There is a NPC here");
+        }    
   }
   
   public void Goodbye () {
