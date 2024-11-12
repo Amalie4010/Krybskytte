@@ -1,26 +1,27 @@
 /* Space class for modeling spaces (rooms, caves, ...)
  */
 
-class Space : Node
+
+class Space : Node 
 {
+  private string description;
   public NPC? NPC;
-  public Space (String name) : base(name)
+  
+  public Space (String name, string description = "") : base(name)
   {
+    this.description = description;
   }
   
   public void Welcome () {
-    Console.WriteLine("- - - - - - - - - - - - -");
-    Console.WriteLine("You are now at "+name);
+    PrettyPrinter.ClearConsole();
+    //PrettyPrinter.WriteDividerLine();
+    PrettyPrinter.WriteLocation(name, description);
     HashSet<string> exits = edges.Keys.ToHashSet();
-    Console.WriteLine("Current exits are:");
-    foreach (String exit in exits) {
-      Console.WriteLine(" - "+exit);
-    }
 
-    if (NPC != null)
-    {
-      Console.WriteLine("there is a NPC");
-    }
+
+    PrettyPrinter.WriteExits(exits);
+    
+
   }
   
   public void Goodbye () {

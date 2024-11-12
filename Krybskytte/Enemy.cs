@@ -33,7 +33,7 @@ class Enemy
         current = space;
     }
 
-    public void Transition(string direction)
+    public void Transition(string direction)   
     {
         Space next = current.FollowEdge(direction);
         if (next == null)
@@ -57,7 +57,10 @@ class Enemy
         
         if (path.Count >= maxPathLength) // Er ruten for lang
         {
-            path.RemoveAt(path.Count - 1);
+            if (path.Count > 0) // resolves edgecase, where enemy is on top of player and therefore cannot remove any paths
+            {
+                path.RemoveAt(path.Count - 1);
+            }
             return false;
         }
 
@@ -67,6 +70,7 @@ class Enemy
         {
             return true;
         }
+
         foreach (KeyValuePair<string, Node> space in here.GetEdges())
         {
             if (!traversedNodes.Contains(space.Value)) // Har algoritmen tjekket dette før
@@ -86,15 +90,14 @@ class Enemy
         return false;
     }
 
-    // Looper og kører funktionen FindPath, indtil den korteste rute er fundet
     List<string> CalculateShortestRouteToPlayer(Node endpoint) 
     {
         int shortestPathLength = int.MaxValue;
         List<string> shortestPath = new List<string>();
 
+        // Kører funktionen FindPath, indtil den korteste rute er fundet
         while (true)
         {
-
             List<string> path = new List<string>();
             if (FindPath(current, endpoint, new List<Node>(), path, shortestPathLength)) // Hvis FindPath er true, betyder det at der blev fundet en rute
             {
@@ -103,7 +106,6 @@ class Enemy
                 continue;
             }
             break;
-
         }
         return shortestPath;
 
@@ -112,7 +114,11 @@ class Enemy
     public void HuntOnce()
     {
         List<string> path = CalculateShortestRouteToPlayer(playerContext.GetCurrent());
-        Transition(path[0]);
+        if (path.Count > 0) // If path == 0 that means the enemy already is at the same location as the player and therefore shouldnt move
+        {
+            Transition(path[0]);
+            PrettyPrinter.WriteDangerMessage(GenerateDangerLevelMessage(path.Count));
+        }
 
         if (PlayerIsInRange())
         {
@@ -128,7 +134,27 @@ class Enemy
 
     void KillPlayer()
     {
-        Console.WriteLine("PEW PEW");
+        //Print Gun
+        PrettyPrinter.Printer("Gun.txt");
+        
+        Console.WriteLine("");
+
+        
         GameState.gameState.Lose();
+    }
+
+    string GenerateDangerLevelMessage(int distance)
+    {
+        if (distance <= 2) 
+        {
+            return "You smell danger VERY close to you!";
+        }
+        else if (distance <= 5)
+        {
+            return "You smell danger near to you";
+        }else
+        {
+            return "You smell no danger";
+        }
     }
 }

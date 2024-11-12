@@ -18,7 +18,7 @@ static class Inventory {
                 full++;
                 
                 if (full == stuff.Length) {
-                    Console.WriteLine("No space in inventory");
+                    PrettyPrinter.WriteInventoryFull();
                     full = 0;
                     return;
                 }
@@ -37,13 +37,7 @@ static class Inventory {
     }
 
     //Shows what's in the inventory
-    public static void GetStuff() {
-        Console.WriteLine("Your inventory contains: ");
-        foreach (var item in stuff) {
-            if (item != null) {
-                Console.Write("- ");
-                Console.WriteLine(item.GetItemName());
-            }
-        }
+    public static Items[] GetStuff() {
+        return stuff;
     }
 }
