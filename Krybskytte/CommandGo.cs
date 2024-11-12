@@ -21,11 +21,7 @@ class CommandGo : BaseCommand, ICommand {
      // Use one turn for player
 
       GameState.gameState.UseTurn();
-
-    //Generates a random item on chance
-      Random random = new Random();
-      int luckyNum = random.Next(1, 100);
-      
+     
     }
     
     catch (KeyNotFoundException)
