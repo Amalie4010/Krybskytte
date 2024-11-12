@@ -82,7 +82,7 @@ class GameState
             default:
                 return;
         }
-        PrintGameState();
+        PrettyPrinter.WriteChangeInTime(state);
     }
 
     public void Lose()
@@ -100,22 +100,5 @@ class GameState
     {
         return state == States.Win;
     }
-
-    public void PrintGameState()
-    {
-        string stringToPrint;
-        switch (state)
-        {
-            case States.Day:
-                stringToPrint = "The day shines upon you!";
-                break;
-            case States.Night:
-                stringToPrint = "The night has fallen!";
-                break;
-            default:
-                return;
-        }
-        Console.WriteLine(stringToPrint);
-    } 
 }
 

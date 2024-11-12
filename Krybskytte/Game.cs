@@ -6,6 +6,7 @@ class Game {
   static Context  context  = new Context(world.GetEntry());
   static ICommand fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
+  
 
   static NPC NPC1 = new NPC("nameNPC", "descriptionNPC", "vl2NPC");
 
@@ -13,7 +14,6 @@ class Game {
   static GameState gameState = new GameState(enemy, world, context);
 
     private static void InitRegistry () {
-
     ICommand cmdExit = new CommandExit();
     registry.Register("exit", cmdExit);
     registry.Register("quit", cmdExit);
@@ -23,10 +23,15 @@ class Game {
     registry.Register("inventory", new CommandInventory());
   }
 
+    private static void InitPrettyPrinter () 
+    {
+        PrettyPrinter.registry = registry;
+    }
   
   static void Main (string[] args) {
     Console.WriteLine("Welcome to The Wild forest. \n You're a wolf, hunted by Mr.Poacher, who's after your Pelt to sell on the black market. \n Outsmart him, survive 10 days, and claim your freedom.");
-    
+
+    InitPrettyPrinter();
     InitRegistry();
     context.GetCurrent().Welcome();
     
@@ -42,7 +47,7 @@ class Game {
         Console.WriteLine("You won, nice!");
     } else if (gameState.HasLost())
     {
-            Console.WriteLine("You lost");
+        Console.WriteLine("You lost");
     }
   }
 }
