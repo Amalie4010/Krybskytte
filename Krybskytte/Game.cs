@@ -1,6 +1,8 @@
 /* Main class for launching the game
  */
 
+using Krybskytte;
+
 class Game {
   static World    world    = new World();
   static Context  context  = new Context(world.GetEntry());
@@ -21,6 +23,7 @@ class Game {
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
     registry.Register("inventory", new CommandInventory());
+    registry.Register("interact", new CommandInteract());
   }
 
   

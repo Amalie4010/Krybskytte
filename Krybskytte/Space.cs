@@ -1,7 +1,9 @@
 /* Space class for modeling spaces (rooms, caves, ...)
  */
 
-class Space : Node {
+class Space : Node
+{
+  public NPC? NPC;
   public Space (String name) : base(name)
   {
   }
@@ -13,6 +15,11 @@ class Space : Node {
     Console.WriteLine("Current exits are:");
     foreach (String exit in exits) {
       Console.WriteLine(" - "+exit);
+    }
+
+    if (NPC != null)
+    {
+      Console.WriteLine("there is a NPC");
     }
   }
   
