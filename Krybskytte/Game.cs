@@ -12,8 +12,9 @@ class Game {
   static NPC NPC1 = new NPC("nameNPC", "descriptionNPC", "vl2NPC");
 
   static Enemy    enemy    = new Enemy(world.GetEntry(), context);
-  static GameState gameState = new GameState(enemy, world, context);
+  public static GameState gameState = new GameState(enemy, world, context);
   static Traps traps = new Traps(context, gameState);
+
 
     private static void InitRegistry () {
     ICommand cmdExit = new CommandExit();
