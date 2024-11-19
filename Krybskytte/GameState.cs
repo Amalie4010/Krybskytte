@@ -67,7 +67,7 @@ class GameState
         state = newState;
         if (newState == States.Night)
         {
-            //enemy.SetCurrent(world.GetEntry());
+            enemy.SetCurrent(world.GetEntry());
         } else if (newState == States.Day)
         {
             PlaceTraps();
