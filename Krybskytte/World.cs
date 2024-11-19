@@ -5,6 +5,7 @@ class World {
   Space entry;
   
 
+
   public World () {
         //Making spaces
         Space treeHouse = new Space("a tree house", "You see smoke in the distance");
@@ -247,6 +248,7 @@ class World {
         dinningHall.AddEdge("blue", hallway);
 
         this.entry = forestEdge;
+
   }
   
   public Space GetEntry () {
