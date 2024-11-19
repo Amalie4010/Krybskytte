@@ -20,7 +20,7 @@ static class Inventory {
             return;
         }
         else {
-            Console.WriteLine("No space in inventory");
+            Shell.PrintLine("No space in inventory");
             return;
 
         }
