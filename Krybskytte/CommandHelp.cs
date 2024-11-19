@@ -12,6 +12,6 @@ class CommandHelp : BaseCommand, ICommand {
   public void Execute (Context context, string command, string[] parameters) {
     string[] commandNames = registry.GetCommandNames();
     Array.Sort(commandNames);
-    PrettyPrinter.PrintAllCommands(commandNames);
+    Shell.PrintAllCommands(commandNames);
   }
 }
