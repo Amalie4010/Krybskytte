@@ -22,7 +22,7 @@ class World {
         Space birchTree = new Space("a birch tree");
         Space valley = new Space("a valley");
         Space tumulus = new Space("a tumulus", "Wonder how many are buried here");
-        Space dryCave = new Space("a cave");    
+        Space dryCave = new Space("a cave", "Don't dig straight down!");    
         Space stone = new Space("a stone");
         Space waterStream = new Space("a water stream", "Wonder were it leads");
         Space oldTree = new Space("the old Tree", "Birds are singing a wonderful melody");
@@ -37,7 +37,7 @@ class World {
         Space oldRailWay = new Space("an old rail way", "It's very overgrown");
         Space lake = new Space("a lake", "A small water stream is connected");
         Space witchHut = new Space("a witch hut");
-        Space humongousMushroom = new Space("a humongous mushroom", "You spot a bunch of smaller once as well");
+        Space humongousMushroom = new Space("a humongous mushroom", "It's big, red and has white polka dots, it could probably bounce a racecar \nYou spot a bunch of smaller once as well");
         Space bottomOfRavine = new Space("the bottom of a ravine", "You don't seem to be able to get up, but here is a pool of water");
         Space waterfall = new Space("a waterfall", "how intriguing");
         Space flower = new Space("a flower", "The flower smells great");
@@ -50,7 +50,7 @@ class World {
         Space foxDen = new Space("a fox den", "Wonder who made this");
         Space bunker = new Space("a bunker", "There is a red door");
         Space hallway = new Space("a hallway", "This room contain 6 doors, they all have distinct colors");
-        Space bathtoom = new Space("a bathroom", "There is big hole were the toilet should be\nWould it be nasty seeing were it leads or should i look behind the green door?");
+        Space bathroom = new Space("a bathroom", "There is big hole were the toilet should be\nWould it be nasty seeing were it leads or should i look behind the green door?");
         Space smallRavine = new Space("a small ravine", "It's scary standing this close to the edge");
         Space crossroad = new Space("a crossroad");
         Space tunnel = new Space("a tunnel", "it's a tight squeeze, but you might be able i get trough");
@@ -204,7 +204,7 @@ class World {
         storageRoom.AddEdge("yellow", hallway);
 
         sewer.AddEdge("north", oldRailWay);
-        sewer.AddEdge("explore", bathtoom);
+        sewer.AddEdge("explore", bathroom);
 
         wetCave.AddEdge("outside", waterfall);
         wetCave.AddEdge("inside", crossroad);
@@ -218,13 +218,13 @@ class World {
 
         hallway.AddEdge("red", bunker);
         hallway.AddEdge("yellow", storageRoom);
-        hallway.AddEdge("green", bathtoom);
+        hallway.AddEdge("green", bathroom);
         hallway.AddEdge("blue", dinningHall);
-        hallway.AddEdge("purble", generator);
+        hallway.AddEdge("purple", generator);
         hallway.AddEdge("pink", barracks);
 
-        bathtoom.AddEdge("hole", sewer);
-        bathtoom.AddEdge("green", hallway);
+        bathroom.AddEdge("hole", sewer);
+        bathroom.AddEdge("green", hallway);
 
         smallRavine.AddEdge("down", bottomOfRavine);
         smallRavine.AddEdge("back", crossroad);

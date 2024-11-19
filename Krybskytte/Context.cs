@@ -31,18 +31,16 @@ class Context {
             {
                 Console.WriteLine("This place contains a trap. Watch out when night comes");
             }
-            current.Goodbye();
             current = next;
             current.Welcome();
         }
         else
         {
-            Console.WriteLine("That path contains a trap!\nQuick move somewere else");
+            Console.WriteLine("That path contains a trap!\nQuick move somewhere else");
         }
             //current.Welcome();
         } 
     else {
-      current.Goodbye();
       current = next;
       current.Welcome();
     }
