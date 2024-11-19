@@ -5,45 +5,43 @@ static class Inventory {
     static private Items[] stuff = new Items[size];
     static private int full;
 
+    static private int count;
+
+    static Inventory() {
+        stuff = new Items[size];
+    }
+
+    public static int GetCount()
+    {
+        return count;
+    }
+
     //Generates an item and adds it to your inventory
     public static void AddItem() {
         Items newItem = new Items();
-        
-        for (int i = 0; i < stuff.Length; i++) {
-            if (stuff[i] == null) {
-                stuff[i] = new Items();
-                return;
-            }
-            else {
-                full++;
-                
-                if (full == stuff.Length) {
-                    Console.WriteLine("No space in inventory");
-                    full = 0;
-                    return;
-                }
-            }
+        if (count >= 0 && count <= size) {
+            stuff[count] = newItem;
+            count++;
+            return;
+        }
+        else {
+            Console.WriteLine("No space in inventory");
+            return;
+
         }
     }
 
     //Removes an item from the inventory
     public static void RemoveItem() {
-        for (int i = 0; i < stuff.Length; i++) {
-            if (stuff[i] != null) {
-                stuff[i] = null;
-                return;
-            }
+        if (count >= 0) {
+            stuff[count - 1] = null;
+            count--;
+            return;
         }
     }
 
     //Shows what's in the inventory
-    public static void GetStuff() {
-        Console.WriteLine("Your inventory contains: ");
-        foreach (var item in stuff) {
-            if (item != null) {
-                Console.Write("- ");
-                Console.WriteLine(item.GetItemName());
-            }
-        }
+    public static Items[] GetStuff() {
+        return stuff;
     }
 }

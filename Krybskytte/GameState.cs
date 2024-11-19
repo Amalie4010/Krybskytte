@@ -17,12 +17,13 @@ class GameState
     States state = States.Day;
     int turnsPerCycle = 5;
     int turnsUntilNextCycle;
-    int daysRequiredToWin = 2;
+    int daysRequiredToWin = 10;
     int daysRemainingToWin;
 
     public Enemy enemy;
     World world;
     Context context;
+    Traps traps;
 
     public GameState(Enemy enemy, World world, Context context)
     {
@@ -35,6 +36,16 @@ class GameState
         
         GameState.gameState = this;
         this.context = context;
+    }
+
+    public void SetTraps(Traps traps)
+    {
+        this.traps = traps;
+    }
+
+    public States GetState()
+    {
+        return state;
     }
 
     public void UseTurn()
@@ -82,7 +93,7 @@ class GameState
             default:
                 return;
         }
-        PrintGameState();
+        PrettyPrinter.WriteChangeInTime(state);
     }
 
     public void Lose()
@@ -100,22 +111,5 @@ class GameState
     {
         return state == States.Win;
     }
-
-    public void PrintGameState()
-    {
-        string stringToPrint;
-        switch (state)
-        {
-            case States.Day:
-                stringToPrint = "The day shines upon you!";
-                break;
-            case States.Night:
-                stringToPrint = "The night has fallen!";
-                break;
-            default:
-                return;
-        }
-        Console.WriteLine(stringToPrint);
-    } 
 }
 

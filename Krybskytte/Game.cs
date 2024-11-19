@@ -5,31 +5,39 @@ using Krybskytte;
 
 class Game {
   static World    world    = new World();
-  static Context  context  = new Context(world.GetEntry());
+  static Context  context  = new Context(world.GetEntry()); 
   static ICommand fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
+
+  static NPC NPC1 = new NPC("nameNPC", "descriptionNPC", "vl2NPC");
+
   static Enemy    enemy    = new Enemy(world.GetEntry(), context);
-  static GameState gameState = new GameState(enemy, world, context);
+  public static GameState gameState = new GameState(enemy, world, context);
+  static Traps traps = new Traps(context, gameState);
+
 
     private static void InitRegistry () {
-
     ICommand cmdExit = new CommandExit();
-    registry.Register("exit", cmdExit);
     registry.Register("quit", cmdExit);
-    registry.Register("bye", cmdExit);
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
     registry.Register("inventory", new CommandInventory());
     registry.Register("interact", new CommandInteract()); // når man skrive "interact", så executer commantinteract. 
   }
 
+    private static void InitPrettyPrinter () 
+    {
+        PrettyPrinter.registry = registry;
+    }
   
   static void Main (string[] args) {
+
     Console.WriteLine("Welcome to The Wild forest. " +
                       "\n You're a wolf, hunted by Mr.Poacher, who's after your pelt to sell on the black market. " +
                       "\n Outsmart him, survive 10 days, and claim your freedom.");
     
 
+    InitPrettyPrinter();
     InitRegistry();
     context.GetCurrent().Welcome();
     
@@ -45,7 +53,7 @@ class Game {
         Console.WriteLine("You won, nice!");
     } else if (gameState.HasLost())
     {
-            Console.WriteLine("You lost");
+        Console.WriteLine("You lost");
     }
   }
 }

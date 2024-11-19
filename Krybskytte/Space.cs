@@ -1,26 +1,33 @@
 /* Space class for modeling spaces (rooms, caves, ...)
  */
 
-class Space : Node
-{
+using System.Dynamic;
+
+class Space : Node {
+  private string description;
+  public bool traped;
   public NPC? NPC;
-  public Space (String name) : base(name)
+  public Space (String name, string description = "", bool traped = false) : base(name)
+
   {
+    this.description = description;
+    this.traped = traped;
+    Traps.places.Add(this);//Adds all objets from spaces
   }
   
   public void Welcome () {
-    Console.WriteLine("- - - - - - - - - - - - -");
-    Console.WriteLine("You are now at "+name);
-    HashSet<string> exits = edges.Keys.ToHashSet();
-    Console.WriteLine("Current exits are:");
-    foreach (String exit in exits) {
-      Console.WriteLine(" - "+exit);
-    }
 
+    PrettyPrinter.ClearConsole();
+    //PrettyPrinter.WriteDividerLine();
+    PrettyPrinter.WriteLocation(name, description);
+    HashSet<string> exits = edges.Keys.ToHashSet();
+
+
+    PrettyPrinter.WriteExits(exits);
     if (NPC != null)
-    {
-      Console.WriteLine("there is a NPC");
-    }
+        {
+            Console.WriteLine("There is a NPC here");
+        }    
   }
   
   public void Goodbye () {
