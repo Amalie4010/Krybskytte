@@ -21,6 +21,6 @@ class Traps {
     public void RemoveTrap(Space spaceToRemoveTrapFrom) {
         spaceToRemoveTrapFrom.traped = false;
         Inventory.RemoveItem();
-        Console.WriteLine("Removed trap and used item!");
+        Shell.PrintLine("Removed trap and used item!");
     }
 }

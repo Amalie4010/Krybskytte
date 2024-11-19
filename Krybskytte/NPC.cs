@@ -21,9 +21,9 @@ public class NPC : IInteractable
     //her under står koden for hvad der vises til spilleren i spillet om NPC, og dens voice lines. 
     public void ShowInformation()
     {
-        Console.WriteLine($"Hello im a {nameNPC}\n \n" + 
-                          $"description {descriptionNPC} \n"+
-                          $"voice line 1 {vl2NPC}"); 
+        Shell.PrintLine($"Hello im a {nameNPC}\n \n" + 
+                    $"description {descriptionNPC} \n"+
+                    $"voice line 1 {vl2NPC}"); 
     }
 
     
