@@ -15,7 +15,7 @@ class GameState
         Win
     }
     States state = States.Day;
-    int turnsPerCycle = 5;
+    int turnsPerCycle = 2;
     int turnsUntilNextCycle;
     int daysRequiredToWin = 10;
     int daysRemainingToWin;
@@ -67,9 +67,10 @@ class GameState
         state = newState;
         if (newState == States.Night)
         {
-            enemy.SetCurrent(world.GetEntry());
+            //enemy.SetCurrent(world.GetEntry());
         } else if (newState == States.Day)
         {
+            PlaceTraps();
             daysRemainingToWin -= 1;
             if (daysRemainingToWin == 0)
             {
@@ -94,6 +95,15 @@ class GameState
                 return;
         }
         PrettyPrinter.WriteChangeInTime(state);
+    }
+
+
+    void PlaceTraps()
+    {
+        for (int i = 0; i < (int) Math.Pow(1.3, (daysRequiredToWin - daysRemainingToWin + 1)); i++)
+        {
+            traps.AddTrap();
+        }
     }
 
     public void Lose()
