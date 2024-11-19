@@ -15,7 +15,7 @@ class GameState
         Win
     }
     States state = States.Day;
-    int turnsPerCycle = 2;
+    int turnsPerCycle = 5;
     int turnsUntilNextCycle;
     int daysRequiredToWin = 10;
     int daysRemainingToWin;
