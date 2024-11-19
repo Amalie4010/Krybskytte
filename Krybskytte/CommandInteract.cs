@@ -18,7 +18,7 @@ class CommandInteract : BaseCommand, ICommand
         Console.WriteLine("Interact with NPC"); 
         if (context.GetCurrent().NPC != null)  
         {
-            context.GetCurrent().NPC.showInformation(); // den viser information om NPC, name, desciption, vl1
+            context.GetCurrent().NPC.ShowInformation(); // den viser information om NPC, name, desciption, vl1
             Inventory.AddItem(); //npc giver item med koden som står i inventory
             Console.WriteLine($"The {context.GetCurrent().NPC.nameNPC} gaave you an item"); // Der står at NPC giver item
         }
