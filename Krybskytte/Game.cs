@@ -8,9 +8,6 @@ class Game {
   static Context  context  = new Context(world.GetEntry()); 
   static ICommand fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
-
-  static NPC NPC1 = new NPC("nameNPC", "descriptionNPC", "vl2NPC");
-
   static Enemy    enemy    = new Enemy(world.GetEntry(), context);
   public static GameState gameState = new GameState(enemy, world, context);
   static Traps traps = new Traps(context, gameState);
@@ -22,7 +19,7 @@ class Game {
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
     registry.Register("inventory", new CommandInventory());
-    registry.Register("interact", new CommandInteract()); // når man skrive "interact", så executer commantinteract. 
+    registry.Register("interact", new CommandInteract()); // når man skrive "interact", så executer commandinteract. 
   }
 
     private static void InitPrettyPrinter () 
@@ -36,7 +33,7 @@ class Game {
                       "\n You're a wolf, hunted by Mr.Poacher, who's after your pelt to sell on the black market. " +
                       "\n Outsmart him, survive 10 days, and claim your freedom.");
     
-
+  
     InitPrettyPrinter();
     InitRegistry();
     context.GetCurrent().Welcome();
