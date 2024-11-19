@@ -135,9 +135,9 @@ class Enemy
     void KillPlayer()
     {
         //Print Gun
-        Shell.Print(PrettyPrinter.TextToString("Gun.txt"));
+        Shell.PrintLine(PrettyPrinter.TextToString("Gun.txt"));
         
-        Console.WriteLine("");
+        Shell.PrintLine("");
 
         
         GameState.gameState.Lose();
