@@ -8,9 +8,6 @@ class Game {
   static Context  context  = new Context(world.GetEntry());
   static ICommand fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
-
-  static NPC NPC1 = new NPC("nameNPC", "descriptionNPC", "vl2NPC");
-
   static Enemy    enemy    = new Enemy(world.GetEntry(), context);
   static GameState gameState = new GameState(enemy, world, context);
 

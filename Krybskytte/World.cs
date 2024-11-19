@@ -7,7 +7,7 @@ class World {
   public World ()
   {
     Space entry    = new Space("Entry");
-    entry.NPC = new NPC("NameNPC", "description", "voiceLine1");
+    entry.NPC = new NPC("Orangutang", "description", "voiceLine1");
     Space corridor = new Space("Corridor");
     Space cave     = new Space("Cave");
     Space pit      = new Space("Darkest Pit");
