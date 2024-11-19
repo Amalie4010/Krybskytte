@@ -25,9 +25,9 @@ class Game {
     registry.Register("interact", new CommandInteract()); // når man skrive "interact", så executer commantinteract. 
   }
 
-    private static void InitPrettyPrinter () 
+    private static void InitShell () 
     {
-        PrettyPrinter.registry = registry;
+      Shell.registry = registry;
     }
   
   static void Main (string[] args) {
@@ -37,7 +37,7 @@ class Game {
                       "\n Outsmart him, survive 10 days, and claim your freedom.");
     
 
-    InitPrettyPrinter();
+    InitShell();
     InitRegistry();
     context.GetCurrent().Welcome();
     

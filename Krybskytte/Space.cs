@@ -17,13 +17,13 @@ class Space : Node {
   
   public void Welcome () {
 
-    PrettyPrinter.ClearConsole();
+    Shell.ClearConsole();
     //PrettyPrinter.WriteDividerLine();
-    PrettyPrinter.WriteLocation(name, description);
+    Shell.WriteLocation(name, description);
     HashSet<string> exits = edges.Keys.ToHashSet();
 
 
-    PrettyPrinter.WriteExits(exits);
+    Shell.WriteExits(exits);
     if (NPC != null)
         {
             Console.WriteLine("There is a NPC here");
