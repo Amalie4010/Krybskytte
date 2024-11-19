@@ -20,11 +20,7 @@ static class Shell
     {
         Console.Clear();
     }
-
-    public static void WriteDividerLine()
-    {
-        Console.WriteLine("- - - - - - - - - - - - -");
-    }
+        
     public static void WriteLocation(string name, string desc)
     {
         Console.WriteLine("You are now at " + name);
