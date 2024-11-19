@@ -40,7 +40,7 @@ class Context {
             Console.WriteLine("That path contains a trap!\nQuick move somewere else");
         }
             //current.Welcome();
-        } 
+    } 
     else {
       current.Goodbye();
       current = next;

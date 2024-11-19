@@ -54,6 +54,11 @@ class Enemy
     // Er en dead-end
     bool FindPath(Node here, Node endpoint, List<Node> traversedNodes, List<string> path, int maxPathLength)
     {
+        Space spaceHere = (Space) here;
+        if (!spaceHere.isTraversableByEnemy)
+        {
+            return false;
+        }
         
         if (path.Count >= maxPathLength) // Er ruten for lang
         {
@@ -72,7 +77,7 @@ class Enemy
         }
 
         foreach (KeyValuePair<string, Node> space in here.GetEdges())
-        {
+            {
             if (!traversedNodes.Contains(space.Value)) // Har algoritmen tjekket dette før
             {
                 path.Add(space.Key);
