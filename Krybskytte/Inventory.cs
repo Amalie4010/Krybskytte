@@ -11,11 +11,6 @@ static class Inventory {
         inventory = new Items[size];
     }
 
-    public static int GetCount()
-    {
-        return count;
-    }
-
     //Generates an item and adds it to your inventory
     public static void AddItem() {
         Items newItem = new Items();
@@ -38,6 +33,10 @@ static class Inventory {
             count--;
             return;
         }
+    }
+
+    public static int GetCount() {
+        return count;
     }
 
     //Shows what's in the inventory

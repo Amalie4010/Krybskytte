@@ -30,9 +30,6 @@ class Space : Node {
         }    
   }
   
-  public void Goodbye () {
-  }
-  
   public override Space FollowEdge (string direction) {
     return (Space) (base.FollowEdge(direction));
   }
