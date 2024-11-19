@@ -11,30 +11,18 @@ class CommandInteract : BaseCommand, ICommand
 
     public void Execute(Context context,string command, string[] parameters)
     {
-        Console.WriteLine("Interact with NPC");
-        if (context.GetCurrent().NPC != null)
+        /* koden context.GetCurrent().NPC != null, denne del ser om der er en NPC på current space man er på
+         hvis der er, ved at se om NPC er lig med ikke null hvis det ikke er lig med null, så tager den
+         informationen fra get
+         */
+        Console.WriteLine("Interact with NPC"); 
+        if (context.GetCurrent().NPC != null)  
         {
-            context.GetCurrent().NPC.showInformation();
-            Inventory.AddItem(); 
-        }
-        else
-        {
-            Console.WriteLine("NPC not found");
-            ;
+            context.GetCurrent().NPC.showInformation(); // den viser information om NPC, name, desciption, vl1
+            Inventory.AddItem(); //npc giver item med koden som står i inventory
+            Console.WriteLine($"The {context.GetCurrent().NPC.nameNPC} gaave you an item"); // Der står at NPC giver item
         }
     }
     
     
-    /*
-    public void Execute(Context context, string command, string[] parameters)
-    {
-        throw new NotImplementedException();
-    }
-
-    
-    public string GetDescription()
-    {
-        throw new NotImplementedException();
-    }
-    */
 }

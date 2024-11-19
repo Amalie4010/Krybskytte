@@ -94,7 +94,7 @@ class GameState
             default:
                 return;
         }
-        PrettyPrinter.WriteChangeInTime(state);
+        Shell.WriteChangeInTime(state);
     }
 
 

@@ -6,6 +6,6 @@ class CommandInventory : BaseCommand, ICommand {
     }
 
     public void Execute(Context context, string command, string[] parameters) {
-        PrettyPrinter.WriteInventoryContent(Inventory.GetStuff());
+        Shell.WriteInventoryContent(Inventory.GetStuff());
     }
 }
