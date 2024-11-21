@@ -7,11 +7,13 @@ class Space : Node {
   private string description;
   public bool traped;
   public NPC? NPC;
-  public Space (String name, string description = "", bool traped = false) : base(name)
+  public bool isTraversableByEnemy;
 
+  public Space (String name, string description = "", bool isTraversableByEnemy = true) : base(name)
   {
     this.description = description;
-    this.traped = traped;
+    this.traped = false;
+    this.isTraversableByEnemy = isTraversableByEnemy;
     Traps.places.Add(this);//Adds all objets from spaces
   }
   
