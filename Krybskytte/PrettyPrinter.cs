@@ -10,6 +10,9 @@ Create text file in Text_Files folder
 Call method using text file name
 PrettyPrinter.TextToString("FileName.txt");
 
+3)
+TextToString returns a string. To print the string use Shell.PrintLine([returned string]);
+
 */
 
 using Microsoft.Win32;
@@ -37,19 +40,19 @@ static class PrettyPrinter
         //Pass the file path and file name to the StreamReader constructor
         StreamReader sr = new StreamReader(directory);
         
-        //Read the first line of text
+        //Read the first line of the text-file
         string? line = sr.ReadLine();
         
         //Continue to read until you reach end of file
         while (line != null)
         {
-            //write the line to console window
+            //Add the line to string text and shift to next line
             text = text + line + "\n";
             
             //Read the next line
             line = sr.ReadLine();
         }
-        //close the file
+        //Close the file
         sr.Close();
         
         return text;

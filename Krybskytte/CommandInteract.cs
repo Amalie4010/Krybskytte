@@ -15,12 +15,12 @@ class CommandInteract : BaseCommand, ICommand
          hvis der er, ved at se om NPC er lig med ikke null hvis det ikke er lig med null, så tager den
          informationen fra get
          */
-        Console.WriteLine("Interact with NPC"); 
+        Shell.PrintLine("Interact with NPC"); 
         if (context.GetCurrent().NPC != null)  
         {
-            context.GetCurrent().NPC.showInformation(); // den viser information om NPC, name, desciption, vl1
+            context.GetCurrent().NPC.ShowInformation(); // den viser information om NPC, name, desciption, vl1
             Inventory.AddItem(); //npc giver item med koden som står i inventory
-            Console.WriteLine($"The {context.GetCurrent().NPC.nameNPC} gaave you an item"); // Der står at NPC giver item
+            Shell.PrintLine($"The {context.GetCurrent().NPC.nameNPC} gaave you an item"); // Der står at NPC giver item
         }
     }
     

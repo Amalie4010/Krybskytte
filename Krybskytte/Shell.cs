@@ -6,20 +6,21 @@ static class Shell
 {
     public static Registry registry;
     
-    public static void Print(string text)
+    public static void PrintLine(string text)
     {
         Console.WriteLine(text);
+    }
+    
+    public static void Print(string text)
+    {
+        Console.Write(text);
     }
     
         public static void ClearConsole()
     {
         Console.Clear();
     }
-
-    public static void WriteDividerLine()
-    {
-        Console.WriteLine("- - - - - - - - - - - - -");
-    }
+        
     public static void WriteLocation(string name, string desc)
     {
         Console.WriteLine("You are now at " + name);

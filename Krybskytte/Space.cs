@@ -28,11 +28,8 @@ class Space : Node {
     Shell.WriteExits(exits);
     if (NPC != null)
         {
-            Console.WriteLine("There is a NPC here");
+            Shell.PrintLine("There is a NPC here");
         }    
-  }
-  
-  public void Goodbye () {
   }
   
   public override Space FollowEdge (string direction) {
