@@ -37,7 +37,7 @@ class World {
         Space oldRailWay = new Space("an old rail way", "It's very overgrown");
         Space lake = new Space("a lake", "A small water stream is connected");
         Space witchHut = new Space("a witch hut");
-        Space humongousMushroom = new Space("a humongous mushroom", "It's big, red and has white polka dots, it could probably bounce a racecar \nYou spot a bunch of smaller once as well");
+        Space humongousMushroom = new Space("a humongous mushroom", "It's big, red and has white polka dots, it could probably bounce a racecar \nYou spot a bunch of smaller mushrooms as well");
         Space bottomOfRavine = new Space("the bottom of a ravine", "You don't seem to be able to get up, but here is a pool of water", false);
         Space waterfall = new Space("a waterfall", "how intriguing");
         Space flower = new Space("a flower", "The flower smells great");
@@ -52,7 +52,7 @@ class World {
         Space hallway = new Space("a hallway", "This room contain 6 doors, they all have distinct colors");
         Space bathroom = new Space("a bathroom", "There is big hole were the toilet should be\nWould it be nasty seeing were it leads or should i look behind the green door?");
         Space smallRavine = new Space("a small ravine", "It's scary standing this close to the edge");
-        Space crossroad = new Space("a crossroad");
+        Space crossroad = new Space("a crossroad", "A hornet runs across the ground");
         Space tunnel = new Space("a tunnel", "it's a tight squeeze, but you might be able i get trough", false);
         Space medbay = new Space("a medbay", "There is a big crack in the wall");
         Space barracks = new Space("the barracks", "This room contain two door, one of them is pink");
@@ -233,7 +233,7 @@ class World {
         crossroad.AddEdge("right", tunnel);
         crossroad.AddEdge("left", smallRavine);
     
-        tunnel.AddEdge("outsie", foxDen);
+        tunnel.AddEdge("outside", foxDen);
         tunnel.AddEdge("left", crossroad);
         tunnel.AddEdge("right", medbay);
 
