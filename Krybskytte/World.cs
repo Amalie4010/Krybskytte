@@ -60,7 +60,7 @@ class World {
         Space dinningHall = new Space("a dinning hall", "not much else to see");
 
 
-        //Making NPS's
+        //Making NPC's
         forestEdge.NPC = new NPC("NameNPC", "description", "voiceLine1");
 
         //Determin the path for each space

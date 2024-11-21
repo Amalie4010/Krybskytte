@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 
 /* Context class to hold all context relevant to the Enemy.
@@ -48,71 +49,64 @@ class Enemy
         }
     }
 
-    // Denne rekursive funktion fungerer ved at finde alle tænkelige ruter, og backtracker hvis en rute:
-    // Går i ring
-    // Er for lang
-    // Er en dead-end
-    bool FindPath(Node here, Node endpoint, List<Node> traversedNodes, List<string> path, int maxPathLength)
-    {
-        Space spaceHere = (Space) here;
-        if (!spaceHere.isTraversableByEnemy)
-        {
-            return false;
-        }
-        
-        if (path.Count >= maxPathLength) // Er ruten for lang
-        {
-            if (path.Count > 0) // resolves edgecase, where enemy is on top of player and therefore cannot remove any paths
-            {
-                path.RemoveAt(path.Count - 1);
-            }
-            return false;
-        }
 
-        traversedNodes.Add(here);
-        
-        if (here == endpoint) 
-        {
-            return true;
-        }
-
-        foreach (KeyValuePair<string, Node> space in here.GetEdges())
-            {
-            if (!traversedNodes.Contains(space.Value)) // Har algoritmen tjekket dette før
-            {
-                path.Add(space.Key);
-                if (FindPath(space.Value, endpoint, traversedNodes, path, maxPathLength)) // Er der en dead-end
-                {
-                    return true;
-                }
-
-            }
-        }
-        if (path.Count != 0)
-        {
-            path.RemoveAt(path.Count - 1);
-        }
-        return false;
-    }
 
     List<string> CalculateShortestRouteToPlayer(Node endpoint) 
     {
-        int shortestPathLength = int.MaxValue;
-        List<string> shortestPath = new List<string>();
+        // Use BFS to search entire map
+        List<Node> visited = new List<Node>();
+        Queue<Node> queue = new Queue<Node>();
+        queue.Enqueue(current);
+        Dictionary<Node, Node> parentsDict = new Dictionary<Node, Node>();
 
-        // Kører funktionen FindPath, indtil den korteste rute er fundet
-        while (true)
+        while (queue.Count > 0)
         {
-            List<string> path = new List<string>();
-            if (FindPath(current, endpoint, new List<Node>(), path, shortestPathLength)) // Hvis FindPath er true, betyder det at der blev fundet en rute
+            Node current = queue.Dequeue();
+            visited.Add(current);
+
+            foreach (KeyValuePair<string, Node> neighbor in current.GetEdges())
             {
-                shortestPath = path;
-                shortestPathLength = shortestPath.Count;
-                continue;
+                // Continue only when a node isnt traversible by enemy AND the player currently isnt on that particular node.
+                if (!((Space) neighbor.Value).isTraversableByEnemy && ((Space)neighbor.Value) != endpoint)
+                {
+                    continue;
+                }
+
+                if (!visited.Contains(neighbor.Value) && !parentsDict.ContainsKey(neighbor.Value))
+                {
+                    queue.Enqueue(neighbor.Value);
+                    parentsDict.Add(neighbor.Value, current);
+                }
             }
-            break;
         }
-        return shortestPath;
+
+        // Create node path
+        List<Node> path = new List<Node>();
+        path.Add(endpoint);
+        Node currentNode = endpoint;
+        while (currentNode != current)
+        {
+            currentNode = parentsDict[currentNode];
+            path.Add(currentNode);
+        }
+        path.Reverse();
+
+        // Construct path of edges
+        List<string> edgePath = new List<string>();
+        for(int i=0; i<path.Count - 1; i++)
+        {
+            Node node = path[i];
+            foreach(KeyValuePair<string, Node> edge in node.GetEdges())
+            {
+                if (edge.Value == path[i+1])
+                {
+                    edgePath.Add(edge.Key);
+                }
+            }
+        }
+
+        
+        return edgePath;
 
     }
 
