@@ -1,6 +1,6 @@
 using System.Net.Sockets;
 
-public class NPC
+public class NPC : IInteractable
 {
     //her under er der attributes til NPC'erne
     public string nameNPC;
@@ -19,14 +19,16 @@ public class NPC
     
     
     //her under står koden for hvad der vises til spilleren i spillet om NPC, og dens voice lines. 
-    public void showInformation()
+    public void ShowInformation()
     {
-        Console.WriteLine($"\n Hello im  {nameNPC}\n " + 
+
+        Shell.PrintLine($"\n Hello im  {nameNPC}\n " + 
                           $" {descriptionNPC} \n"+
                           $" {vl2NPC}"); 
         /*
         PrettyPrinter.Printer(fileName);
         */
+
     }
 /*
     public string FileName()

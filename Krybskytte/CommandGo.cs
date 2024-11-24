@@ -10,7 +10,7 @@ class CommandGo : BaseCommand, ICommand {
   
   public void Execute (Context context, string command, string[] parameters) {
     if (GuardEq(parameters, 1)) {
-      PrettyPrinter.InvalidCommand();
+      Shell.InvalidCommand();
       return;
     }
 
@@ -26,7 +26,7 @@ class CommandGo : BaseCommand, ICommand {
     
     catch (KeyNotFoundException)
     {
-      PrettyPrinter.InvalidCommand();
+      Shell.InvalidCommand();
     }
     
   }

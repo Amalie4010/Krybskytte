@@ -7,30 +7,29 @@ class Space : Node {
   private string description;
   public bool traped;
   public NPC? NPC;
-  public Space (String name, string description = "", bool traped = false) : base(name)
+  public bool isTraversableByEnemy;
 
+  public Space (String name, string description = "", bool isTraversableByEnemy = true) : base(name)
   {
     this.description = description;
-    this.traped = traped;
+    this.traped = false;
+    this.isTraversableByEnemy = isTraversableByEnemy;
     Traps.places.Add(this);//Adds all objets from spaces
   }
   
   public void Welcome () {
 
-    PrettyPrinter.ClearConsole();
+    Shell.ClearConsole();
     //PrettyPrinter.WriteDividerLine();
-    PrettyPrinter.WriteLocation(name, description);
+    Shell.WriteLocation(name, description);
     HashSet<string> exits = edges.Keys.ToHashSet();
 
 
-    PrettyPrinter.WriteExits(exits);
+    Shell.WriteExits(exits);
     if (NPC != null)
         {
-            Console.WriteLine("There is a NPC here");
+            Shell.PrintLine("There is a NPC here");
         }    
-  }
-  
-  public void Goodbye () {
   }
   
   public override Space FollowEdge (string direction) {

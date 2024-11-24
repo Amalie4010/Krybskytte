@@ -70,6 +70,7 @@ class GameState
             enemy.SetCurrent(world.GetEntry());
         } else if (newState == States.Day)
         {
+            PlaceTraps();
             daysRemainingToWin -= 1;
             if (daysRemainingToWin == 0)
             {
@@ -93,7 +94,16 @@ class GameState
             default:
                 return;
         }
-        PrettyPrinter.WriteChangeInTime(state);
+        Shell.WriteChangeInTime(state);
+    }
+
+
+    void PlaceTraps()
+    {
+        for (int i = 0; i < (int) Math.Pow(1.3, (daysRequiredToWin - daysRemainingToWin + 1)); i++)
+        {
+            traps.AddTrap();
+        }
     }
 
     public void Lose()

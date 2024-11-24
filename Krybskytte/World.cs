@@ -14,7 +14,7 @@ class World {
         Space puddle = new Space("a puddle");
         Space bigOak = new Space("the big oak", "Look up, there is a tree house in it");
         Space well = new Space("a well", "Falling down seems like a bad idea");
-        Space bottomOfWell = new Space("the bottom of the well", "You can't come up, maybe try to swim down?");
+        Space bottomOfWell = new Space("the bottom of the well", "You can't come up, maybe try to swim down?", false);
         Space shrine = new Space("a shrine", "A water stream runs by");
         Space crashedAirplane = new Space("a crashed airplane");
         Space sapling = new Space("a sapling", "One day it will grow into a big tree");
@@ -22,7 +22,7 @@ class World {
         Space birchTree = new Space("a birch tree");
         Space valley = new Space("a valley");
         Space tumulus = new Space("a tumulus", "Wonder how many are buried here");
-        Space dryCave = new Space("a cave");    
+        Space dryCave = new Space("a cave", "Don't dig straight down!");    
         Space stone = new Space("a stone");
         Space waterStream = new Space("a water stream", "Wonder were it leads");
         Space oldTree = new Space("the old Tree", "Birds are singing a wonderful melody");
@@ -37,30 +37,31 @@ class World {
         Space oldRailWay = new Space("an old rail way", "It's very overgrown");
         Space lake = new Space("a lake", "A small water stream is connected");
         Space witchHut = new Space("a witch hut");
-        Space humongousMushroom = new Space("a humongous mushroom", "You spot a bunch of smaller once as well");
-        Space bottomOfRavine = new Space("the bottom of a ravine", "You don't seem to be able to get up, but here is a pool of water");
+        Space humongousMushroom = new Space("a humongous mushroom", "It's big, red and has white polka dots, it could probably bounce a racecar \nYou spot a bunch of smaller mushrooms as well");
+        Space bottomOfRavine = new Space("the bottom of a ravine", "You don't seem to be able to get up, but here is a pool of water", false);
         Space waterfall = new Space("a waterfall", "how intriguing");
         Space flower = new Space("a flower", "The flower smells great");
         Space field = new Space("a field");
         Space swamp = new Space("a swamp");
         Space weirdEntrance = new Space("a weird entrance", "Something exiting must be on the other side");
         Space storageRoom = new Space("a storage room", "Contains a lot of nuka cola? Don't know what that is");
-        Space sewer = new Space("a sewer", "Disgusting!!");
+        Space sewer = new Space("a sewer", "Disgusting!!", false);
         Space wetCave = new Space("a cave", "It's behind a waterfall");
         Space foxDen = new Space("a fox den", "Wonder who made this");
         Space bunker = new Space("a bunker", "There is a red door");
         Space hallway = new Space("a hallway", "This room contain 6 doors, they all have distinct colors");
-        Space bathtoom = new Space("a bathroom", "There is big hole were the toilet should be\nWould it be nasty seeing were it leads or should i look behind the green door?");
+        Space bathroom = new Space("a bathroom", "There is big hole were the toilet should be\nWould it be nasty seeing were it leads or should i look behind the green door?");
         Space smallRavine = new Space("a small ravine", "It's scary standing this close to the edge");
-        Space crossroad = new Space("a crossroad");
-        Space tunnel = new Space("a tunnel", "it's a tight squeeze, but you might be able i get trough");
+        Space crossroad = new Space("a crossroad", "A hornet runs across the ground");
+        Space tunnel = new Space("a tunnel", "it's a tight squeeze, but you might be able i get trough", false);
         Space medbay = new Space("a medbay", "There is a big crack in the wall");
         Space barracks = new Space("the barracks", "This room contain two door, one of them is pink");
         Space generator = new Space("a generator", "not much else to see");
         Space dinningHall = new Space("a dinning hall", "not much else to see");
 
 
-        //Making NPS's and attributes
+
+        //Making NPC's
         forestEdge.NPC = new NPC("Pam, The Pangolin", "", "Well here is your item");
         waterStream.NPC = new NPC("Crush, The Leatherback Turtle", "", "Well here is your item");
         barracks.NPC = new NPC("Jarvan IV, The Javan Rhino", "", "Well here is your item");
@@ -71,6 +72,7 @@ class World {
         crashedAirplane.NPC = new NPC("Kai Cenat, The African Elephant", "", "Well here is your item");
         bunker.NPC = new NPC("Rhyan, The Sumatran Rhino", "", "Well here is your item");
         sewer.NPC = new NPC("Raphael, The Hawksbill Turtle", "", "Well here is your item");
+
 
         //Determin the path for each space
         treeHouse.AddEdge("down", bigOak);
@@ -213,7 +215,7 @@ class World {
         storageRoom.AddEdge("yellow", hallway);
 
         sewer.AddEdge("north", oldRailWay);
-        sewer.AddEdge("explore", bathtoom);
+        sewer.AddEdge("explore", bathroom);
 
         wetCave.AddEdge("outside", waterfall);
         wetCave.AddEdge("inside", crossroad);
@@ -227,13 +229,13 @@ class World {
 
         hallway.AddEdge("red", bunker);
         hallway.AddEdge("yellow", storageRoom);
-        hallway.AddEdge("green", bathtoom);
+        hallway.AddEdge("green", bathroom);
         hallway.AddEdge("blue", dinningHall);
-        hallway.AddEdge("purble", generator);
+        hallway.AddEdge("purple", generator);
         hallway.AddEdge("pink", barracks);
 
-        bathtoom.AddEdge("hole", sewer);
-        bathtoom.AddEdge("green", hallway);
+        bathroom.AddEdge("hole", sewer);
+        bathroom.AddEdge("green", hallway);
 
         smallRavine.AddEdge("down", bottomOfRavine);
         smallRavine.AddEdge("back", crossroad);
@@ -242,7 +244,7 @@ class World {
         crossroad.AddEdge("right", tunnel);
         crossroad.AddEdge("left", smallRavine);
     
-        tunnel.AddEdge("outsie", foxDen);
+        tunnel.AddEdge("outside", foxDen);
         tunnel.AddEdge("left", crossroad);
         tunnel.AddEdge("right", medbay);
 

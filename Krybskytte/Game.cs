@@ -22,24 +22,26 @@ class Game {
     registry.Register("interact", new CommandInteract()); // når man skrive "interact", så executer commandinteract. 
   }
 
-    private static void InitPrettyPrinter () 
+    private static void InitShell () 
     {
-        PrettyPrinter.registry = registry;
+      Shell.registry = registry;
     }
   
   static void Main (string[] args) {
 
-    Console.WriteLine("Welcome to The Wild forest. " +
-                      "\n You're a wolf, hunted by Mr.Poacher, who's after your pelt to sell on the black market. " +
-                      "\n Outsmart him, survive 10 days, and claim your freedom.");
+    Shell.PrintLine("Welcome to The Wild forest. " +
+                "\n You're a wolf, hunted by Mr.Poacher, who's after your pelt to sell on the black market. " +
+                "\n Outsmart him, survive 10 days, and claim your freedom.");
     
-  
-    InitPrettyPrinter();
+
+
+    InitShell();
+
     InitRegistry();
     context.GetCurrent().Welcome();
     
     while (context.IsDone()==false) {
-      Console.Write("> ");
+      Shell.Print("> ");
       string? line = Console.ReadLine();
       if (line!=null) registry.Dispatch(line);
       // enemy.HuntOnce(); // Hvis denne linje tilføjes, vil Enemy jagte spilleren efter hver kommando spilleren skriver. (Pt. dør spilleren bare instantly)
@@ -47,10 +49,10 @@ class Game {
 
     if (gameState.HasWon())
     {
-        Console.WriteLine("You won, nice!");
+      Shell.PrintLine("You won, nice!");
     } else if (gameState.HasLost())
     {
-        Console.WriteLine("You lost");
+      Shell.PrintLine("You lost");
     }
   }
 }
