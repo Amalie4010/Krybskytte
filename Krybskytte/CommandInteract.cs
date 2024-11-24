@@ -20,7 +20,12 @@ class CommandInteract : BaseCommand, ICommand
         {
             context.GetCurrent().NPC.showInformation(); // den viser information om NPC, name, desciption, vl1
             Inventory.AddItem(); //npc giver item med koden som står i inventory
-            Console.WriteLine($"{context.GetCurrent().NPC.nameNPC} gave you an item"); // Der står at NPC giver item
+            if (Inventory.GetCount() != Inventory.GetSize())
+            {
+                
+                Console.WriteLine($"{context.GetCurrent().NPC.nameNPC} gave you an item"); // Der står at NPC giver item
+            }
+           
         }
     }
     
