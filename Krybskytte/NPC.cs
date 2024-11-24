@@ -6,7 +6,7 @@ public class NPC : IInteractable
     public string nameNPC;
     public string descriptionNPC;
     public string vl2NPC;
-    
+    public string fileName; 
     
     //constructor her har den samme navn som klassen, 
     public NPC (string nameNPC, string descriptionNPC, string vl2NPC)
@@ -21,10 +21,19 @@ public class NPC : IInteractable
     //her under står koden for hvad der vises til spilleren i spillet om NPC, og dens voice lines. 
     public void ShowInformation()
     {
-        Shell.PrintLine($"Hello im a {nameNPC}\n \n" + 
-                    $"description {descriptionNPC} \n"+
-                    $"voice line 1 {vl2NPC}"); 
-    }
 
-    
+        Shell.PrintLine($"\n Hello im  {nameNPC}\n " + 
+                          $" {descriptionNPC} \n"+
+                          $" {vl2NPC}"); 
+        /*
+        PrettyPrinter.Printer(fileName);
+        */
+
+    }
+/*
+    public string FileName()
+    {
+        return fileName = "NPC-" + nameNPC + ".txt";
+    }
+    */
 }

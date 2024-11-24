@@ -60,8 +60,19 @@ class World {
         Space dinningHall = new Space("a dinning hall", "not much else to see");
 
 
+
         //Making NPC's
-        forestEdge.NPC = new NPC("NameNPC", "description", "voiceLine1");
+        forestEdge.NPC = new NPC("Pam, The Pangolin", "", "Well here is your item");
+        waterStream.NPC = new NPC("Crush, The Leatherback Turtle", "", "Well here is your item");
+        barracks.NPC = new NPC("Jarvan IV, The Javan Rhino", "", "Well here is your item");
+        valley.NPC = new NPC("Tim, The Tiger", "", "Well here is your item");
+        humongousMushroom.NPC = new NPC("Syndra, The Sunda Tiger", "", "Well here is your item");
+        treeHouse.NPC = new NPC("Sajjad, The Orangutang", "", "Well here is your item");
+        smallRavine.NPC = new NPC("Thai Fung, The Amur Leopard", "", "Well here is your item");
+        crashedAirplane.NPC = new NPC("Kai Cenat, The African Elephant", "", "Well here is your item");
+        bunker.NPC = new NPC("Rhyan, The Sumatran Rhino", "", "Well here is your item");
+        sewer.NPC = new NPC("Raphael, The Hawksbill Turtle", "", "Well here is your item");
+
 
         //Determin the path for each space
         treeHouse.AddEdge("down", bigOak);

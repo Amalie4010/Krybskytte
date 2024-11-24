@@ -14,10 +14,13 @@ static class Inventory {
     //Generates an item and adds it to your inventory
     public static void AddItem() {
         Items newItem = new Items();
-        if (count >= 0 && count <= size) {
-            inventory[count] = newItem;
+
+        if (count >= 0 && count < size) {
+            stuff[count] = newItem;
+
             count++;
             return;
+            
         }
         else {
             Shell.PrintLine("No space in inventory");
@@ -42,5 +45,10 @@ static class Inventory {
     //Shows what's in the inventory
     public static Items[] GetInventory() {
         return inventory;
+    }
+
+    public static int GetSize()
+    {
+        return size;
     }
 }
