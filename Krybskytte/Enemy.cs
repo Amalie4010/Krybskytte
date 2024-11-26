@@ -144,11 +144,11 @@ class Enemy
 
     string GenerateDangerLevelMessage(int distance)
     {
-        if (distance <= 2) 
+        if (distance <= 3) 
         {
             return "You smell danger VERY close to you!";
         }
-        else if (distance <= 5)
+        else if (distance <= 6)
         {
             return "You smell danger near to you";
         }else
