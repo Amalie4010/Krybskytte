@@ -1,7 +1,6 @@
-
-
-
-/*HOW TO USE
+/*
+ 
+HOW TO USE
  
  1)
 Create text file in Text_Files folder

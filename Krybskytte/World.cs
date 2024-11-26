@@ -70,7 +70,7 @@ class World {
         treeHouse.NPC = new NPC("Sajjad, The Orangutang", "NPC-Orangutang");
         smallRavine.NPC = new NPC("Thai Fung, The Amur Leopard", "NPC-AmurLeopard");
         crashedAirplane.NPC = new NPC("Kai Cenat, The African Elephant", "NPC-AfricanElephant");
-        oldRailWay.NPC = new NPC("Rhyan, The Sumatran Rhino", "NPC-SumatransRhino");
+        oldRailWay.NPC = new NPC("Rhyan, The Sumatran Rhino", "NPC-SumatranRhino");
         medbay.NPC = new NPC("Raphael, The Hawksbill Turtle", "NPC-HawksbillTurtle");
 
 

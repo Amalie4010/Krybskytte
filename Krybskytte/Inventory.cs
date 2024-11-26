@@ -7,10 +7,6 @@ static class Inventory {
 
     static private int count;
 
-    static Inventory() {
-        inventory = new Items[size];
-    }
-
     //Generates an item and adds it to your inventory
     public static void AddItem() {
         Items newItem = new Items();
@@ -20,7 +16,6 @@ static class Inventory {
 
             count++;
             return;
-            
         }
         else {
             Shell.PrintLine("No space in inventory");

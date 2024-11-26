@@ -24,12 +24,12 @@ class CommandInteract : BaseCommand, ICommand
             if (Inventory.GetCount() != Inventory.GetSize() && !context.GetCurrent().NPC.ifInteracted)
             {
                 Inventory.AddItem(); //npc giver item med koden som står i inventory
-                Shell.PrintLine($"{context.GetCurrent().NPC.nameNPC} gave you an item"); // Der står at NPC giver item
+                Shell.PrintLine("Here is an item!"); // Der står at NPC giver item
                 context.GetCurrent().NPC.ifInteracted = true;
             }
             else if (Inventory.GetCount() == Inventory.GetSize())
             {
-                Shell.PrintLine("Your inventory is full ");
+                Shell.PrintLine("Your don't seem to be able to carry more!l\nCome back when you have more space in you inventory,\nthen i will give you an item ");
             }
             else if (context.GetCurrent().NPC.ifInteracted)
             {
