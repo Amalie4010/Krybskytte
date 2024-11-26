@@ -57,21 +57,21 @@ class World {
         Space medbay = new Space("a medbay", "There is a big crack in the wall");
         Space barracks = new Space("the barracks", "This room contain two door, one of them is pink");
         Space generator = new Space("a generator", "not much else to see");
-        Space dinningHall = new Space("a dinning hall", "not much else to see");
+        Space diningHall = new Space("a dining hall", "not much else to see");
 
 
 
         //Making NPC's
-        forestEdge.NPC = new NPC("Pam, The Pangolin","NPC-Pangolin");
+        field.NPC = new NPC("Pam, The Pangolin","NPC-Pangolin");
         waterStream.NPC = new NPC("Crush, The Leatherback Turtle", "NPC-LeatherbackTurtle");
-        barracks.NPC = new NPC("Jarvan IV, The Javan Rhino","NPC-JavanRhino");
+        diningHall.NPC = new NPC("Jarvan IV, The Javan Rhino","NPC-JavanRhino");
         valley.NPC = new NPC("Tim, The Tiger", "NPC-Tiger");
         humongousMushroom.NPC = new NPC("Syndra, The Sunda Tiger", "NPC-SundaTiger");
         treeHouse.NPC = new NPC("Sajjad, The Orangutang", "NPC-Orangutang");
         smallRavine.NPC = new NPC("Thai Fung, The Amur Leopard", "NPC-AmurLeopard");
         crashedAirplane.NPC = new NPC("Kai Cenat, The African Elephant", "NPC-AfricanElephant");
-        bunker.NPC = new NPC("Rhyan, The Sumatran Rhino", "NPC-SumatransRhino");
-        sewer.NPC = new NPC("Raphael, The Hawksbill Turtle", "NPC-HawksbillTurtle");
+        oldRailWay.NPC = new NPC("Rhyan, The Sumatran Rhino", "NPC-SumatransRhino");
+        medbay.NPC = new NPC("Raphael, The Hawksbill Turtle", "NPC-HawksbillTurtle");
 
 
         //Determin the path for each space
@@ -230,7 +230,7 @@ class World {
         hallway.AddEdge("red", bunker);
         hallway.AddEdge("yellow", storageRoom);
         hallway.AddEdge("green", bathroom);
-        hallway.AddEdge("blue", dinningHall);
+        hallway.AddEdge("blue", diningHall);
         hallway.AddEdge("purple", generator);
         hallway.AddEdge("pink", barracks);
 
@@ -256,7 +256,7 @@ class World {
 
         generator.AddEdge("purple", hallway);
 
-        dinningHall.AddEdge("blue", hallway);
+        diningHall.AddEdge("blue", hallway);
 
         this.entry = forestEdge;
 
