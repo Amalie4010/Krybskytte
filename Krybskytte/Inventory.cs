@@ -16,7 +16,7 @@ static class Inventory {
         Items newItem = new Items();
 
         if (count >= 0 && count < size) {
-            stuff[count] = newItem;
+            inventory[count] = newItem;
 
             count++;
             return;
