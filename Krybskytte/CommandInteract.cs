@@ -19,15 +19,23 @@ class CommandInteract : BaseCommand, ICommand
         if (context.GetCurrent().NPC != null)  
         {
             context.GetCurrent().NPC.ShowInformation(); // den viser information om NPC, name, desciption, vl1
-            Inventory.AddItem(); //npc giver item med koden som står i inventory
+            
 
-            if (Inventory.GetCount() != Inventory.GetSize())
+            if (Inventory.GetCount() != Inventory.GetSize() && !context.GetCurrent().NPC.ifInteracted)
             {
-                
-                  Shell.PrintLine($"{context.GetCurrent().NPC.nameNPC} gave you an item"); // Der står at NPC giver item
+                Inventory.AddItem(); //npc giver item med koden som står i inventory
+                Shell.PrintLine($"{context.GetCurrent().NPC.nameNPC} gave you an item"); // Der står at NPC giver item
+                context.GetCurrent().NPC.ifInteracted = true;
+            }
+            else if (Inventory.GetCount() == Inventory.GetSize())
+            {
+                Shell.PrintLine("Your inventory is full ");
+            }
+            else if (context.GetCurrent().NPC.ifInteracted)
+            {
+                Shell.PrintLine("You already recieved an item from me");
             }
            
-
         }
     }
     
