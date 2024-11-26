@@ -4,17 +4,16 @@ public class NPC : IInteractable
 {
     //her under er der attributes til NPC'erne
     public string nameNPC;
-    public string descriptionNPC;
-    public string vl2NPC;
-    public string fileName; 
+    public string fileID;
+    public string fileName;
+    public bool ifInteracted;
     
     //constructor her har den samme navn som klassen, 
-    public NPC (string nameNPC, string descriptionNPC, string vl2NPC)
+    public NPC (string nameNPC, string fileID, bool ifInteracted = false)
     {
         this.nameNPC = nameNPC;
-        this.descriptionNPC = descriptionNPC;
-        this.vl2NPC = vl2NPC;
-        
+        this.fileID = fileID;
+        this.ifInteracted = ifInteracted;
     }
     
     
@@ -22,18 +21,24 @@ public class NPC : IInteractable
     public void ShowInformation()
     {
 
-        Shell.PrintLine($"\n Hello im  {nameNPC}\n " + 
-                          $" {descriptionNPC} \n"+
-                          $" {vl2NPC}"); 
-        /*
-        PrettyPrinter.Printer(fileName);
-        */
-
+        Shell.PrintLine($"\nHello im {nameNPC}\n");
+        
+        Shell.PrintLine(PrettyPrinter.TextToString(FileName()));
+        
+        
     }
-/*
+
+    
     public string FileName()
     {
-        return fileName = "NPC-" + nameNPC + ".txt";
+        return fileName = fileID + ".txt";
     }
-    */
+
+    // public bool GetIsInteracted()
+    // {
+    //     return ifInteracted;
+    // }
+
+  
+    
 }
