@@ -28,6 +28,9 @@ static class Shell
         {
             Console.WriteLine($"{desc}");
         }
+        else if (Game.gameState.GetState() == States.Night) {
+            Console.WriteLine("It's to dark to see any details");
+        }
     }
 
     public static void WriteExits(HashSet<string> exits)

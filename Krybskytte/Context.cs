@@ -23,16 +23,19 @@ class Context {
     {
         if (GameState.gameState.GetState() == GameState.States.Day)
         {
+            current = next;
+            current.Welcome();
+
             if (Inventory.GetCount() > 0)
             {
                 traps.RemoveTrap(next);
+                Inventory.RemoveItem();
+                Shell.PrintLine("You removed a trap and used an item!");
             }
             else
             {
                 Shell.PrintLine("This place contains a trap. Watch out when night comes");
             }
-            current = next;
-            current.Welcome();
         }
         else
         {
