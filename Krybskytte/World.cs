@@ -53,7 +53,7 @@ class World {
         Space bathroom = new Space("a bathroom", "There is big hole were the toilet should be\nWould it be nasty seeing were it leads or should i look behind the green door?");
         Space smallRavine = new Space("a small ravine", "It's scary standing this close to the edge");
         Space crossroad = new Space("a crossroad", "A hornet runs across the ground");
-        Space tunnel = new Space("a tunnel", "it's a tight squeeze, but you might be able i get trough", false);
+        Space tunnel = new Space("a tunnel", "it's a tight squeeze, but you are just able too get trough", false);
         Space medbay = new Space("a medbay", "There is a big crack in the wall");
         Space barracks = new Space("the barracks", "This room contain two door, one of them is pink");
         Space generator = new Space("a generator", "not much else to see");
