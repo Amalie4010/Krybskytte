@@ -29,16 +29,22 @@ class Game {
   
   static void Main (string[] args) {
 
+    
+    if (gameState.TurnsUntilNextCycle() == 5 && gameState.DaysRequiredToWin() == 10)
+    {
+      Shell.PrintLine(PrettyPrinter.TextToString("Introduktion.txt"));
+    }
+    
     Shell.PrintLine("Welcome to The Wild forest. " +
-                "\n You're a wolf, hunted by Mr.Poacher, who's after your pelt to sell on the black market. " +
-                "\n Outsmart him, survive 10 days, and claim your freedom.");
+                    "\n You're a wolf, hunted by Mr.Poacher, who's after your pelt to sell on the black market. " +
+                    "\n Outsmart him, survive 10 days, and claim your freedom.");
+    
     
 
-
-    InitShell();
-
-    InitRegistry();
+    
     context.GetCurrent().Welcome();
+    InitShell();
+    InitRegistry();
     
     while (context.IsDone()==false) {
       Shell.Print("> ");
@@ -50,9 +56,19 @@ class Game {
     if (gameState.HasWon())
     {
       Shell.PrintLine("You won, nice!");
-    } else if (gameState.HasLost())
+    } 
+    else if (gameState.HasLost() && gameState.DaysRemainingToWin == gameState.DaysRequiredToWin)
+    {
+      Shell.PrintLine("you hear your family arriving while you slowly bleed out" +
+                      "\n Bam!! they also get shot," +
+                      "\n they call out your name in tears," +
+                      "\n you slowly loose your hearing and everything goes black." +
+                      "\n You lost");
+    } 
+    else if (gameState.HasLost())
     {
       Shell.PrintLine("You lost");
     }
+    
   }
 }

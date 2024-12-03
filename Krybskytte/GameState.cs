@@ -121,5 +121,20 @@ class GameState
     {
         return state == States.Win;
     }
+
+    public int DaysRemainingToWin()
+    {
+        return daysRemainingToWin;
+    }
+
+    public int DaysRequiredToWin()
+    {
+        return daysRequiredToWin;
+    }
+
+    public int TurnsUntilNextCycle()
+    {
+        return turnsUntilNextCycle;
+    }
 }
 
