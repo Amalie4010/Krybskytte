@@ -45,7 +45,7 @@ class World {
         Space swamp = new Space("a swamp");
         Space weirdEntrance = new Space("a weird entrance", "Something exiting must be on the other side");
         Space storageRoom = new Space("a storage room", "Contains a lot of nuka cola? Don't know what that is");
-        Space sewer = new Space("a sewer", "Disgusting!!", false);
+        Space sewer = new Space("a sewer", "Disgusting! No sane person would go through here", false);
         Space wetCave = new Space("a cave", "It's behind a waterfall");
         Space foxDen = new Space("a fox den", "Wonder who made this");
         Space bunker = new Space("a bunker", "There is a red door");
