@@ -15,11 +15,11 @@ class Traps {
         Random random = new Random();
         int place = random.Next(0, places.Count);
 
-        places[place].traped = true;
+        places[place].trapped = true;
     }
 
     public void RemoveTrap(Space spaceToRemoveTrapFrom) {
-        spaceToRemoveTrapFrom.traped = false;
+        spaceToRemoveTrapFrom.trapped = false;
         Inventory.RemoveItem();
     }
 }

@@ -60,10 +60,10 @@ class Game {
     else if (gameState.HasLost() && gameState.DaysRemainingToWin == gameState.DaysRequiredToWin)
     {
       Shell.PrintLine("you hear your family arriving while you slowly bleed out" +
-                      "\n Bam!! they also get shot," +
-                      "\n they call out your name in tears," +
-                      "\n you slowly loose your hearing and everything goes black." +
-                      "\n You lost");
+                      "\nBam!! they also get shot," +
+                      "\nthey call out your name in tears," +
+                      "\nyou slowly loose your hearing and everything goes black." +
+                      "\nYou lost");
     } 
     else if (gameState.HasLost())
     {

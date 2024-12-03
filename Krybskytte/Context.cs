@@ -19,7 +19,7 @@ class Context {
   
   public void Transition (string direction) {
     Space next = current.FollowEdge(direction);
-    if (next.traped == true) 
+    if (next.trapped == true) 
     {
         if (GameState.gameState.GetState() == GameState.States.Day)
         {

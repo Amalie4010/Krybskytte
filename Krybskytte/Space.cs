@@ -5,14 +5,14 @@ using System.Dynamic;
 
 class Space : Node {
   private string description;
-  public bool traped;
+  public bool trapped;
   public NPC? NPC;
   public bool isTraversableByEnemy;
 
   public Space (String name, string description = "", bool isTraversableByEnemy = true) : base(name)
   {
     this.description = description;
-    this.traped = false;
+    this.trapped = false;
     this.isTraversableByEnemy = isTraversableByEnemy;
     Traps.places.Add(this);//Adds all objets from spaces
   }
