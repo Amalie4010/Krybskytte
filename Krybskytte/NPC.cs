@@ -6,24 +6,35 @@ public class NPC : IInteractable
     private string nameNPC;
     private string fileID;
     private string fileName;
-    public bool ifInteracted;
+    public bool hasBeenInteractedWith;
     
     //constructor her har den samme navn som klassen, 
-    public NPC (string nameNPC, string fileID, bool ifInteracted = false)
+    public NPC (string nameNPC, string fileID, bool hasBeenInteractedWith = false)
     {
         this.nameNPC = nameNPC;
         this.fileID = fileID;
-        this.ifInteracted = ifInteracted;
+        this.hasBeenInteractedWith = hasBeenInteractedWith;
     }
     //her under står koden for hvad der vises til spilleren i spillet om NPC, og dens voice lines. 
-    public void ShowInformation()
+    public void Interact()
     {
-
         Shell.PrintLine($"\nHello im {nameNPC}\n");
-        
         Shell.PrintLine(PrettyPrinter.TextToString(FileName()));
-        
-        
+
+        if (hasBeenInteractedWith)
+        {
+            Shell.PrintLine("You already recieved an item from me");
+            return;
+        }
+        if (Inventory.GetCount() >= Inventory.GetSize())
+        {
+            Shell.PrintLine("Your don't seem to be able to carry more!l\nCome back when you have more space in you inventory,\nthen i will give you an item ");
+            return;
+        }
+
+        Inventory.AddItem(); //npc giver item med koden som står i inventory
+        Shell.PrintLine("Here is an item!"); // Der står at NPC giver item
+        hasBeenInteractedWith = true;
     }
     public string FileName()
     {
@@ -34,4 +45,8 @@ public class NPC : IInteractable
         return nameNPC;
     }
 
+    public string GetSelfAnnouncementMessage()
+    {
+        return $"You see that {nameNPC} is here!";
+    }
 }

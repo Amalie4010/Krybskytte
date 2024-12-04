@@ -1,6 +1,8 @@
 /* World class for modeling the entire in-game world
  */
 
+using Krybskytte;
+
 class World {
   Space entry;
   
@@ -61,17 +63,18 @@ class World {
 
 
 
-        //Making NPC's
-        field.NPC = new NPC("Pam, The Pangolin","NPC-Pangolin");
-        waterStream.NPC = new NPC("Crush, The Leatherback Turtle", "NPC-LeatherbackTurtle");
-        diningHall.NPC = new NPC("Jarvan IV, The Javan Rhino","NPC-JavanRhino");
-        valley.NPC = new NPC("Tim, The Tiger", "NPC-Tiger");
-        humongousMushroom.NPC = new NPC("Syndra, The Sunda Tiger", "NPC-SundaTiger");
-        treeHouse.NPC = new NPC("Sajjad, The Orangutang", "NPC-Orangutang");
-        smallRavine.NPC = new NPC("Thai Fung, The Amur Leopard", "NPC-AmurLeopard");
-        crashedAirplane.NPC = new NPC("Kai Cenat, The African Elephant", "NPC-AfricanElephant");
-        oldRailWay.NPC = new NPC("Rhyan, The Sumatran Rhino", "NPC-SumatranRhino");
-        medbay.NPC = new NPC("Raphael, The Hawksbill Turtle", "NPC-HawksbillTurtle");
+        //Making Interactables
+        swamp.interactable =  new Bush();
+        field.interactable =  new NPC("Pam, The Pangolin", "NPC-Pangolin");
+        waterStream.interactable =  new NPC("Crush, The Leatherback Turtle", "NPC-LeatherbackTurtle");
+        diningHall.interactable =  new NPC("Jarvan IV, The Javan Rhino","NPC-JavanRhino");
+        valley.interactable =  new NPC("Tim, The Tiger", "NPC-Tiger");
+        humongousMushroom.interactable =  new NPC("Syndra, The Sunda Tiger", "NPC-SundaTiger");
+        treeHouse.interactable =  new NPC("Sajjad, The Orangutang", "NPC-Orangutang");
+        smallRavine.interactable =  new NPC("Thai Fung, The Amur Leopard", "NPC-AmurLeopard");
+        crashedAirplane.interactable =  new NPC("Kai Cenat, The African Elephant", "NPC-AfricanElephant");
+        oldRailWay.interactable =  new NPC("Rhyan, The Sumatran Rhino", "NPC-SumatranRhino");
+        medbay.interactable =  new NPC("Raphael, The Hawksbill Turtle", "NPC-HawksbillTurtle");
 
 
         //Determin the path for each space

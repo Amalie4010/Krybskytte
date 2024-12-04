@@ -6,7 +6,7 @@ using System.Dynamic;
 class Space : Node {
   private string description;
   public bool trapped;
-  public NPC? NPC;
+  public IInteractable? interactable;
   public bool isTraversableByEnemy;
 
   public Space (String name, string description = "", bool isTraversableByEnemy = true) : base(name)
@@ -26,10 +26,10 @@ class Space : Node {
 
 
     Shell.WriteExits(exits);
-    if (NPC != null)
-        {
-            Shell.PrintLine("There is a NPC here");
-        }    
+    if (interactable != null)
+    {
+         Shell.PrintLine(interactable.GetSelfAnnouncementMessage());
+    }    
   }
   
   public override Space FollowEdge (string direction) {
