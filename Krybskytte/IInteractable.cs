@@ -1,7 +1,6 @@
 
 public interface IInteractable
-{
-    void ShowInformation();
-    
-
+{ 
+    void Interact();
+    public string GetSelfAnnouncementMessage();
 }
