@@ -42,7 +42,6 @@ class Context {
         {
             Shell.PrintLine("That path contains a trap!\nQuick move somewhere else");
         }
-            //current.Welcome();
     } 
     else {
       current.Bye();
