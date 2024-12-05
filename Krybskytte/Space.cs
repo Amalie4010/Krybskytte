@@ -19,8 +19,6 @@ class Space : Node {
   
   public void Welcome () {
 
-    Shell.ClearConsole();
-    //PrettyPrinter.WriteDividerLine();
     Shell.WriteLocation(name, description);
     HashSet<string> exits = edges.Keys.ToHashSet();
 
@@ -31,6 +29,10 @@ class Space : Node {
          Shell.PrintLine(interactable.GetSelfAnnouncementMessage());
     }    
   }
+    public void Bye()
+    {
+        Shell.ClearConsole();
+    }
   
   public override Space FollowEdge (string direction) {
     return (Space) (base.FollowEdge(direction));

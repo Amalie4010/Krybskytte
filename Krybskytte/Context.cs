@@ -23,6 +23,7 @@ class Context {
     {
         if (GameState.gameState.GetState() == GameState.States.Day)
         {
+            current.Bye();
             current = next;
             current.Welcome();
 
@@ -44,6 +45,7 @@ class Context {
             //current.Welcome();
     } 
     else {
+      current.Bye();
       current = next;
       current.Welcome();
     }

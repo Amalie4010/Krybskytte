@@ -35,9 +35,9 @@ class Game {
       Shell.PrintLine(PrettyPrinter.TextToString("Introduktion.txt"));
     }
     
-    Shell.PrintLine("Welcome to The Wild forest. " +
-                    "\n You're a wolf, hunted by Mr.Poacher, who's after your pelt to sell on the black market. " +
-                    "\n Outsmart him, survive 10 days, and claim your freedom.");
+    //Shell.PrintLine("Welcome to The Wild forest. " +
+    //                "\n You're a wolf, hunted by Mr.Poacher, who's after your pelt to sell on the black market. " +
+    //                "\n Outsmart him, survive 10 days, and claim your freedom.");
     
     
 
