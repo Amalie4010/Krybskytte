@@ -40,7 +40,7 @@ class Context {
         }
         else
         {
-            Shell.PrintLine("That path contains a trap!\nQuick move somewhere else");
+            Shell.PrintLine("That path contains a trap!\nQuick, move somewhere else");
         }
     } 
     else {

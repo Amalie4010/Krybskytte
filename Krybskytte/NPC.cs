@@ -23,12 +23,12 @@ public class NPC : IInteractable
 
         if (hasBeenInteractedWith)
         {
-            Shell.PrintLine("You already recieved an item from me");
+            Shell.PrintLine("You already received an item from me");
             return;
         }
         if (Inventory.GetCount() >= Inventory.GetSize())
         {
-            Shell.PrintLine("Your don't seem to be able to carry more!l\nCome back when you have more space in you inventory,\nthen i will give you an item ");
+            Shell.PrintLine("You don't seem to be able to carry any more!\nCome back when you have more space in you inventory,\nthen i will give you an item ");
             return;
         }
 
