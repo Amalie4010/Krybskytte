@@ -19,10 +19,11 @@ class Context {
   
   public void Transition (string direction) {
     Space next = current.FollowEdge(direction);
-    if (next.traped == true) 
+    if (next.trapped == true) 
     {
         if (GameState.gameState.GetState() == GameState.States.Day)
         {
+            current.Bye();
             current = next;
             current.Welcome();
 
@@ -39,11 +40,11 @@ class Context {
         }
         else
         {
-            Shell.PrintLine("That path contains a trap!\nQuick move somewhere else");
+            Shell.PrintLine("That path contains a trap!\nQuick, move somewhere else");
         }
-            //current.Welcome();
     } 
     else {
+      current.Bye();
       current = next;
       current.Welcome();
     }

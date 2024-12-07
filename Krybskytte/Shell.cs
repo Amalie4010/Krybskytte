@@ -16,7 +16,7 @@ static class Shell
         Console.Write(text);
     }
     
-        public static void ClearConsole()
+    public static void ClearConsole()
     {
         Console.Clear();
     }

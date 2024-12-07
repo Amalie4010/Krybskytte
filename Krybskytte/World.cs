@@ -1,6 +1,8 @@
 /* World class for modeling the entire in-game world
  */
 
+using Krybskytte;
+
 class World {
   Space entry;
   
@@ -18,16 +20,16 @@ class World {
         Space shrine = new Space("a shrine", "A water stream runs by");
         Space crashedAirplane = new Space("a crashed airplane");
         Space sapling = new Space("a sapling", "One day it will grow into a big tree");
-        Space rabbitNest = new Space("a Rabbit nest", "Rabbits? that looks more like a nugget to me!");
+        Space rabbitNest = new Space("a rabbit's nest", "Rabbits? that looks more like a nugget to me!");
         Space birchTree = new Space("a birch tree");
         Space valley = new Space("a valley");
         Space tumulus = new Space("a tumulus", "Wonder how many are buried here");
         Space dryCave = new Space("a cave", "Don't dig straight down!");    
         Space stone = new Space("a stone");
         Space waterStream = new Space("a water stream", "Wonder were it leads");
-        Space oldTree = new Space("the old Tree", "Birds are singing a wonderful melody");
-        Space campfire = new Space("a campfire", "Smoke reached over the trees");
-        Space abandonCar = new Space("an abandon car");
+        Space oldTree = new Space("the old tree", "Birds are singing a wonderful melody");
+        Space campfire = new Space("a campfire", "Smoke reaches over the trees");
+        Space abandonCar = new Space("an abandoned car");
         Space ruin = new Space("a ruin");
         Space clearing = new Space("a clearing", "it's nice and bright here");
         Space fallenTreeTrunk = new Space("a fallen tree trunk");
@@ -37,17 +39,17 @@ class World {
         Space oldRailWay = new Space("an old rail way", "It's very overgrown");
         Space lake = new Space("a lake", "A small water stream is connected");
         Space witchHut = new Space("a witch hut");
-        Space humongousMushroom = new Space("a humongous mushroom", "It's big, red and has white polka dots, it could probably bounce a racecar \nYou spot a bunch of smaller mushrooms as well");
-        Space bottomOfRavine = new Space("the bottom of a ravine", "You don't seem to be able to get up, but here is a pool of water", false);
+        Space humongousMushroom = new Space("a humongous mushroom", "It's big, red and has white polka dots. It could probably bounce a race car! \nYou spot a bunch of smaller mushrooms as well");
+        Space bottomOfRavine = new Space("the bottom of a ravine", "You don't seem to be able to get up, but there is a pool of water", false);
         Space waterfall = new Space("a waterfall", "how intriguing");
         Space flower = new Space("a flower", "The flower smells great");
         Space field = new Space("a field");
         Space swamp = new Space("a swamp");
-        Space weirdEntrance = new Space("a weird entrance", "Something exiting must be on the other side");
-        Space storageRoom = new Space("a storage room", "Contains a lot of nuka cola? Don't know what that is");
-        Space sewer = new Space("a sewer", "Disgusting!!", false);
+        Space weirdEntrance = new Space("a weird entrance", "Something exciting must be on the other side");
+        Space storageRoom = new Space("a storage room", "Contains a lot of Nuka Cola? Don't know what that is");
+        Space sewer = new Space("a sewer", "Disgusting! No sane person would go through here", false);
         Space wetCave = new Space("a cave", "It's behind a waterfall");
-        Space foxDen = new Space("a fox den", "Wonder who made this");
+        Space foxDen = new Space("a fox den", "Wonder who made this?");
         Space bunker = new Space("a bunker", "There is a red door");
         Space hallway = new Space("a hallway", "This room contain 6 doors, they all have distinct colors");
         Space bathroom = new Space("a bathroom", "There is big hole were the toilet should be\nWould it be nasty seeing were it leads or should i look behind the green door?");
@@ -55,23 +57,24 @@ class World {
         Space crossroad = new Space("a crossroad", "A hornet runs across the ground");
         Space tunnel = new Space("a tunnel", "it's a tight squeeze, but you are just able too get trough", false);
         Space medbay = new Space("a medbay", "There is a big crack in the wall");
-        Space barracks = new Space("the barracks", "This room contain two door, one of them is pink");
+        Space barracks = new Space("the barracks", "This room contains two doors, one of them is pink");
         Space generator = new Space("a generator", "not much else to see");
         Space diningHall = new Space("a dining hall", "not much else to see");
 
 
 
-        //Making NPC's
-        field.NPC = new NPC("Pam, The Pangolin","NPC-Pangolin");
-        waterStream.NPC = new NPC("Crush, The Leatherback Turtle", "NPC-LeatherbackTurtle");
-        diningHall.NPC = new NPC("Jarvan IV, The Javan Rhino","NPC-JavanRhino");
-        valley.NPC = new NPC("Tim, The Tiger", "NPC-Tiger");
-        humongousMushroom.NPC = new NPC("Syndra, The Sunda Tiger", "NPC-SundaTiger");
-        treeHouse.NPC = new NPC("Sajjad, The Orangutang", "NPC-Orangutang");
-        smallRavine.NPC = new NPC("Thai Fung, The Amur Leopard", "NPC-AmurLeopard");
-        crashedAirplane.NPC = new NPC("Kai Cenat, The African Elephant", "NPC-AfricanElephant");
-        oldRailWay.NPC = new NPC("Rhyan, The Sumatran Rhino", "NPC-SumatranRhino");
-        medbay.NPC = new NPC("Raphael, The Hawksbill Turtle", "NPC-HawksbillTurtle");
+        //Making Interactables
+        swamp.interactable =  new Bush();
+        field.interactable =  new NPC("Pam, The Pangolin", "NPC-Pangolin");
+        waterStream.interactable =  new NPC("Crush, The Leatherback Turtle", "NPC-LeatherbackTurtle");
+        diningHall.interactable =  new NPC("Jarvan IV, The Javan Rhino","NPC-JavanRhino");
+        valley.interactable =  new NPC("Tim, The Tiger", "NPC-Tiger");
+        humongousMushroom.interactable =  new NPC("Syndra, The Sunda Tiger", "NPC-SundaTiger");
+        treeHouse.interactable =  new NPC("Sajjad, The Orangutang", "NPC-Orangutang");
+        smallRavine.interactable =  new NPC("Thai Fung, The Amur Leopard", "NPC-AmurLeopard");
+        crashedAirplane.interactable =  new NPC("Kai Cenat, The African Elephant", "NPC-AfricanElephant");
+        oldRailWay.interactable =  new NPC("Rhyan, The Sumatran Rhino", "NPC-SumatranRhino");
+        medbay.interactable =  new NPC("Raphael, The Hawksbill Turtle", "NPC-HawksbillTurtle");
 
 
         //Determin the path for each space
