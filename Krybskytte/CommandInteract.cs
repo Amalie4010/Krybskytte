@@ -16,6 +16,7 @@ class CommandInteract : BaseCommand, ICommand
          informationen fra get
          */
 
+
         IInteractable? currentInteractable = context.GetCurrent().interactable;
         if (currentInteractable == null)  
         {
@@ -25,6 +26,4 @@ class CommandInteract : BaseCommand, ICommand
             currentInteractable.Interact();
         } 
     }
-    
-    
 }
