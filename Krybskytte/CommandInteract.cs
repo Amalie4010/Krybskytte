@@ -24,7 +24,7 @@ class CommandInteract : BaseCommand, ICommand
             if (Inventory.GetCount() != Inventory.GetSize() && !context.GetCurrent().NPC.ifInteracted)
             {
                 Inventory.AddItem(); //npc giver item med koden som står i inventory
-                Shell.PrintLine("Here is an item!"); // Der står at NPC giver item
+                Shell.PrintLine($"{context.GetCurrent().NPC.GetNameNPC()} gave you an item! Check your inventory."); // Der står at NPC giver item
                 context.GetCurrent().NPC.ifInteracted = true;
             }
             else if (Inventory.GetCount() == Inventory.GetSize())
@@ -33,7 +33,7 @@ class CommandInteract : BaseCommand, ICommand
             }
             else if (context.GetCurrent().NPC.ifInteracted)
             {
-                Shell.PrintLine("You already recieved an item from me");
+                Shell.PrintLine($"You already recieved an item from {context.GetCurrent().NPC.GetNameNPC()}.");
             }
            
         }
