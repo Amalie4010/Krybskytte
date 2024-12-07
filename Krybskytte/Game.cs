@@ -60,7 +60,7 @@ class Game {
                       "\nBam!! they also get shot," +
                       "\nthey call out your name in tears," +
                       "\nyou slowly loose your hearing and everything goes black." +
-                      "\nYou lost");
+                      "\nYou lost...");
     } 
     else if (gameState.HasLost())
     {
