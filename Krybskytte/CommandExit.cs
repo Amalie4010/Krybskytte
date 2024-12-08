@@ -2,7 +2,13 @@
  */
 
 class CommandExit : BaseCommand, ICommand {
-  public void Execute (Context context, string command, string[] parameters) {
+  
+    
+    public CommandExit () {
+        description = "Quit game";
+    }
+    
+    public void Execute (Context context, string command, string[] parameters) {
     context.MakeDone();
   }
 }
