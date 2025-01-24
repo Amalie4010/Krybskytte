@@ -30,7 +30,6 @@ class Context {
             if (Inventory.GetCount() > 0)
             {
                 traps.RemoveTrap(next);
-                Inventory.RemoveItem();
                 Shell.PrintLine("You removed a trap and used an item!");
             }
             else

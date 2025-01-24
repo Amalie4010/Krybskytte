@@ -38,6 +38,7 @@ class World {
         Space mushroom = new Space("a few mushrooms", "You spot even more!");
         Space oldRailWay = new Space("an old rail way", "It's very overgrown");
         Space lake = new Space("a lake", "A small water stream is connected");
+        lake.trapped = true;
         Space witchHut = new Space("a witch hut");
         Space humongousMushroom = new Space("a humongous mushroom", "It's big, red and has white polka dots. It could probably bounce a race car! \nYou spot a bunch of smaller mushrooms as well");
         Space bottomOfRavine = new Space("the bottom of a ravine", "You don't seem to be able to get up, but there is a pool of water", false);

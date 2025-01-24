@@ -26,7 +26,7 @@ static class Inventory {
 
     //Removes an item from the inventory
     public static void RemoveItem() {
-        if (count >= 0) {
+        if (count > 0) {
             inventory[count - 1] = null;
             count--;
             return;
